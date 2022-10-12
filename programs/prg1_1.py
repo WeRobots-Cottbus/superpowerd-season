@@ -8,7 +8,7 @@ from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 
 import sys, os
-sys.path.insert(0, "/home/robot/src_cc-os")
+sys.path.insert(0, "/home/robot/superpowerd-season")
 
 from botconfig import *
 from toolkit import *
@@ -16,19 +16,14 @@ from toolkit import *
 PrgName = __file__.split("/")[-1][:-3]
 
 def run():
-    Base.settings(350,350,150,150)
-    Base.straight(350)
-    Base.turn(50)
-    Base.straight(365)
-    Base.turn(-52)
-    Base.straight(25)
-    MotorTop.run_angle(250,600)
-    MotorTop.run_angle(-250,600)
-    MotorTop.run_angle(250,600)
-    MotorTop.run_angle(-250,600)
-    MotorTop.run_angle(250,600)
-    MotorTop.run_angle(-350,600)
-    Base.straight(300)
+    Base.settings(350,350,50,50)
+    Base.straight(-250)
+    Base.turn(60)
+    Base.straight(-417)#small change
+    Base.turn(-55)
+    Base.straight(-250)
+    MotorTop.run_angle(-200,-620)#bewgung zu groß
+    MotorTop.run_angle(200,-620)
 
 if __name__ == "__main__":
     run()
