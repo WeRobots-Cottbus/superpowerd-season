@@ -16,10 +16,12 @@ from toolkit import *
 PrgName = __file__.split("/")[-1][:-3]
 
 def run():
+    Gyro.reset_angle(0)
     Base.settings(200,200,150,150)
-    Base.straight(700)
-    Base.turn(30)
-    Base.straight(400)
-
+        
+    while Base.distance() <= 515:
+        MotorTop.run_angle(3,3)
+    Base.stop()
+    
 if __name__ == "__main__":
     run()

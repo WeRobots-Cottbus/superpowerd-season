@@ -18,7 +18,7 @@ prg_prev = lambda x: (x - 1) % prg_len
 prg_next = lambda x: (x + 1) % prg_len
 
 def loop():
-    prg2_1.run() # tenp
+    prg2_1.run()# tenp
     prg_sel = 0
     DisplayText(prg_lst[prg_sel].PrgName, (0,4),True)
     while True:

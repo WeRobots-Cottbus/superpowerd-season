@@ -18,21 +18,21 @@ PrgName = __file__.split("/")[-1][:-3]
 def run():
     Base.settings(300,300,150,150)
     Gyro.reset_angle(0)
-    Base.straight(490) # erstes mal nach vorne
+    GyroDrive(490) # erstes mal nach vorne
     print(Gyro.angle())
     Base.straight(-150)
     while Gyro.angle() <= 45:
         print(Gyro.angle())
         Base.drive(70,-70)
     Base.stop()
-    Base.straight(515) # jedes mal anders ahhhhhhhhhhhhh
+    GyroDrive(515) # jedes mal anders ahhhhhhhhhhhhh
     while Gyro.angle() <= 90:
         print(Gyro.angle())
         Base.drive(100,-100) 
     Base.stop()
-    Base.straight(150)
+    GyroDrive(150)
     MotorTop.run_angle(300,230)
-    Base.straight(200)
+    GyroDrive(200)
     #dürfte klppen
     
     MotorTop.run_angle(300,-250)
@@ -45,14 +45,14 @@ def run():
     Base.stop()
 
     #hand - klasppt noch nicht so gut
-    Base.straight(230)
+    GyroDrive(230)
     MotorTop.run_angle(300,390)
     MotorTop.run_angle(200,-550)
     wait(500)
-    Base.straight(200)
-    MotorFront.run_angle(300,360)
+    GyroDrive(200)
+    MotorFront.run_angle(300,360)# multiprocessing needed chanel 1gi
     #solarfeld - noch weiter raus fahren
-    MotorTop.run_angle(500,850)
+    MotorTop.run_angle(500,850)#multiprocessing needed chanel 1
     wait(10000)
     while Gyro.angle() != 90:
         if Gyro.angle() > 90:
@@ -61,8 +61,13 @@ def run():
             Base.drive(20,-20)
     Base.stop()
 
-    Base.straight(300)
+    GyroDrive(300)
 
+    
+    Base.stop()
+
+    
+    
 
 
 if __name__ == "__main__":
