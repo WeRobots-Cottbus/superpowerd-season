@@ -59,9 +59,34 @@ def DisplayTextMatrix(text:list|str, clear:bool=False, **kwargs) -> None:
 
 
 # gyro geradeaus
-def GyroDrive(distance:int, speed:float=200) -> None:
-    gyro_start = Gyro.angle()
-    while Base.distance() <= distance:
-        Base.drive(speed,-((gyro_start-Gyro.angle())*3))
-    Base.stop()
+def GyroDrive(distance:int, speed:float=200, gyro_start:int=Gyro.angle(),factor:int=3) -> None:
     
+    
+    if distance < 0:
+
+        while Base.distance() >= distance:
+            Base.drive(-speed,-((gyro_start-Gyro.angle())*factor))
+
+    else:
+        while Base.distance() <= distance:
+            Base.drive(speed,-((gyro_start-Gyro.angle())*factor))
+
+
+    Base.stop()
+    Base.reset()
+    print(gyro_start)
+
+def GyroTurn(angle:int,speed:int):
+
+    if angle > 0:
+        while Gyro.angle() <= angle:
+            print(Gyro.angle())
+            Base.drive(-speed,-speed)
+
+    elif angle < 0:
+        while Gyro.angle() >= angle:
+            print(Gyro.angle())
+            Base.drive(speed,speed)
+
+    Base.stop()
+    Base.reset()

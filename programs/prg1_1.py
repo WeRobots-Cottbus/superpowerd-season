@@ -10,45 +10,55 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 import sys, os
 sys.path.insert(0, "/home/robot/superpowerd-season")
 
-from botconfig import *
-from toolkit import *
+from botconfig import MotorTop, MotorFront, MotorLeft, MotorRight, Gyro, ColorLeft, ColorRight, Base
+from toolkit import GyroDrive, GyroTurn
 
 PrgName = __file__.split("/")[-1][:-3]
 
-"""
-    Gyro.reset_angle(0)
-    Base.settings(300,300,100,100)
-    Base.straight(-250)
-    
-    while Gyro.angle() != -45:
-        print(Gyro.angle())
-        Base.drive(-20,50)
-    print(Gyro.angle()) 
-
-
-    Base.reset()
-    while Base.distance() != -395:
-        print(Base.distance())
-        Base.drive(-200,0)
-    Base.stop()
-    MotorLeft.brake()
-    MotorRight.brake()
-    print(Gyro.angle())
-    while Gyro.angle() != 0:
-        print(Gyro.angle())
-        Base.drive(-20,-50)
-    print(Gyro.angle()) 
-    Base.straight(-200)
-    for _ in range(3):
-        MotorTop.run_angle(-500,-400)
-        MotorTop.run_angle(500,-400)
-    MotorTop.run_time(-500,1000)
-    Base.drive(250,25)
-
-"""
+#MotorTop = ausfahrbares dingsbums
+#MotorFront = Gabelstapler
 
 def run():
-    pass
     
+    #initilazing variables
+    Gyro.reset_angle(0)
+    gyro0 = Gyro.angle()
+
+    GyroDrive(350,250,gyro0,5)#erste geradeaus
+    wait(100)
+    GyroDrive(120,150,gyro0)#langsamer wegen
+    wait(500)
+    GyroDrive(-100,200,gyro0)#zurück
+    GyroTurn(gyro0+45,30)#drehung
+    GyroDrive(455,250,gyro0+45)#danach geradeaus#temp
+    wait(250)
+    GyroTurn(gyro0+88,20)#drehen bei trichter
+    wait(500)
+    #temp änderung
+    GyroDrive(610,200,gyro0+90)#fahren zur hand
+    wait(250)
+    MotorTop.run_angle(500,600)#dingsbums raus
+    wait(250)
+    MotorTop.run_angle(-300,500)#dingsbums rein
+    wait(250)
+    GyroDrive(130,200,gyro0+90)#kurz geradeaus bis zum solarfeld
+    MotorTop.run_angle(600,800)#raus zum solarfeld
+    GyroDrive(500,150,gyro0+90,7)#geradeaus
+
+    MotorFront.run_angle(450,525)#gabel hoch
+    MotorFront.run_angle(-450,285)#gabel runter
+    
+    MotorFront.run_angle(450,285)#gabel hoch
+    MotorFront.run_angle(-450,285)#gabel runter
+
+    MotorFront.run_angle(450,285)#gabel hoch
+
+    MotorTop.run_angle(-550,800)#dingsbums wieder rein
+
+    GyroDrive(-90,200,gyro0+90)
+    Base.turn(-60)
+    GyroDrive(600,500,gyro0+90+60)
+
+
 if __name__ == "__main__":
     run()
