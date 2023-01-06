@@ -40,18 +40,18 @@ def run():
     MotorTop.run_angle(500,600)#dingsbums raus
     wait(250)
     MotorTop.run_angle(-300,500)#dingsbums rein
-    wait(250)
+    wait(500)
     GyroDrive(130,200,gyro0+90)#kurz geradeaus bis zum solarfeld
     MotorTop.run_angle(600,800)#raus zum solarfeld
     GyroDrive(500,150,gyro0+90,7)#geradeaus
 
-    MotorFront.run_angle(450,525)#gabel hoch
-    MotorFront.run_angle(-450,285)#gabel runter
+    MotorFront.run_angle(400,525)#gabel hoch
+    MotorFront.run_angle(-400,295)#gabel runter
     
-    MotorFront.run_angle(450,285)#gabel hoch
-    MotorFront.run_angle(-450,285)#gabel runter
+    MotorFront.run_angle(400,295)#gabel hoch
+    MotorFront.run_angle(-400,295)#gabel runter
 
-    MotorFront.run_angle(450,285)#gabel hoch
+    MotorFront.run_angle(400,295)#gabel hoch
 
     MotorTop.run_angle(-550,800)#dingsbums wieder rein
 
