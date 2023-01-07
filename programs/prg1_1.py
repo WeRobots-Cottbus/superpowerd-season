@@ -24,18 +24,19 @@ def run():
     Gyro.reset_angle(0)
     gyro0 = Gyro.angle()
 
-    GyroDrive(350,250,gyro0,5)#erste geradeaus
+    GyroDrive(365,250,gyro0,5)#erste geradeaus
     wait(100)
-    GyroDrive(120,150,gyro0)#langsamer wegen
+    GyroDrive(105,150,gyro0)#langsamer wegen
     wait(500)
     GyroDrive(-100,200,gyro0)#zurück
-    GyroTurn(gyro0+45,30)#drehung
-    GyroDrive(455,250,gyro0+45)#danach geradeaus#temp
+    GyroTurn(gyro0+45,25)#drehung
+    GyroDrive(455,250,gyro0+45)#danach geradeaus#temp###455
     wait(250)
     GyroTurn(gyro0+88,20)#drehen bei trichter
     wait(500)
     #temp änderung
-    GyroDrive(610,200,gyro0+90)#fahren zur hand
+    GyroTurn(gyro0+90,5)
+    GyroDrive(625,200,gyro0+90)#fahren zur hand
     wait(250)
     MotorTop.run_angle(500,600)#dingsbums raus
     wait(250)
@@ -55,9 +56,9 @@ def run():
 
     MotorTop.run_angle(-550,800)#dingsbums wieder rein
 
-    GyroDrive(-90,200,gyro0+90)
-    Base.turn(-60)
-    GyroDrive(600,500,gyro0+90+60)
+    GyroDrive(-90,200,gyro0+90)#kurz wieder zurück
+    Base.turn(-60)#drehung base
+    GyroDrive(600,500,gyro0+90+60)#zur base
 
 
 if __name__ == "__main__":
