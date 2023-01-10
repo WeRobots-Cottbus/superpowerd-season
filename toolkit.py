@@ -59,35 +59,46 @@ def DisplayTextMatrix(text:list|str, clear:bool=False, **kwargs) -> None:
 
 
 # gyro geradeaus
+#hier fahren wir geradeaus und checken dauerhaft wie unser gyro wert sich verändert
+#wenn der wert sich in eine richtung(negativ oder postiv) verändert dann bewegen verändern wir unsere bewegung
+#in die zu lösende richtung
 def GyroDrive(distance:int, speed:float=200, gyro_start:int=Gyro.angle(),factor:int=3) -> None:
-    
-    
+    Base.reset()
+
+    #rückwärts Bewegung
     if distance < 0:
 
-        while Base.distance() >= distance:
-            Base.drive(-speed,-((gyro_start-Gyro.angle())*factor))
+        while Base.distance() >= distance:#solange wir noch nicht die zufahrende distanz gefahren sind
+            Base.drive(-speed,-((gyro_start-Gyro.angle())*factor))#berechnung des zu drehenden Faktors der und wieder zum ausgangswert bewegt
 
+    #vorwärts Bewegung
     else:
-        while Base.distance() <= distance:
-            Base.drive(speed,-((gyro_start-Gyro.angle())*factor))
+        while Base.distance() <= distance:#solanfe wir noch nicht die zufahrende distanz gefrahren sind
+            Base.drive(speed,-((gyro_start-Gyro.angle())*factor))#berechnung des zu drehenden Faktors der und wieder zum ausgangswert bewegt
 
 
     Base.stop()
     Base.reset()
-    print(gyro_start)
+    print(f"Gestartet bei: {gyro_start}\n Geendet bei: {Gyro.angle()}")
 
-def GyroTurn(angle:int,speed:int):
+#drehung auf einen gyrowert
+#nutzung in userem Program nicht als jede drehung einzel sonder ein 0 wert wird gesetzt un darauf wird
+#werden dann alle andere werte berchnet. So wird dreht sich der roboter bei 90 grad immer auf die gleichen 90 grad.
+def GyroTurn(angle:int,speed:int=20) -> None: 
     turned = False
-    if angle >= 0:
-        while Gyro.angle() <= angle:
-            print(Gyro.angle())
-            Base.drive(-speed,-speed)
-        turned = True
 
+    #drehung nach rechts
+    if angle >= 0 and turned is False:
+        while Gyro.angle() <= angle:#drehung solange bis gyro richtigen wert gibt
+            print(Gyro.angle())
+            Base.drive(-speed,-speed)#bewegung nach rechts
+        turned = True#changing turned value
+
+    #drehung nach links
     if angle <= 0 and  turned is False:
-        while Gyro.angle() >= angle:
+        while Gyro.angle() >= angle:#drehung solange bis gyro richtigen wert gibt
             print(Gyro.angle())
-            Base.drive(speed,speed)
+            Base.drive(speed,speed)#bewegun nach links
 
-    Base.stop()
-    Base.reset()
+    Base.stop()#stop der Bewegung
+    Base.reset()#reset der Bewegungen

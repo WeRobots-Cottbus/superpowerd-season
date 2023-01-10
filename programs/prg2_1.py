@@ -15,6 +15,7 @@ from toolkit import GyroDrive, GyroTurn
 
 PrgName = __file__.split("/")[-1][:-3]
 
+#Aufgaben: M03(35) | M11(20)
 
 def run():
     #initilazing variables
@@ -29,8 +30,7 @@ def run():
     GyroDrive(150,250)#zurück zum wasserdings
     GyroDrive(80,100,gyro0)#wasserdings auslösen
     GyroTurn(gyro0-45,30)#drehung in base 
-    GyroDrive(350,300,gyro0-45)
-print ("sofia ist unglaublich krass cool und hübsch und Tristan aber auch. Und Lego ist doof") 
+    GyroDrive(350,300,gyro0-45)#fahr in die base
     
 
 

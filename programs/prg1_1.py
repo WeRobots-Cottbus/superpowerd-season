@@ -18,6 +18,8 @@ PrgName = __file__.split("/")[-1][:-3]
 #MotorTop = ausfahrbares dingsbums
 #MotorFront = Gabelstapler
 
+#Aufgaben: M08(20) | M05(20+10) | M04(20) | M02(15) | M09(Dino)
+
 def run():
     
     #initilazing variables

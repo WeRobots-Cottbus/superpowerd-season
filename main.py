@@ -11,6 +11,9 @@ from botconfig import *
 from toolkit import *
 from programs import prg1_1, prg2_1, prg3_1
 
+#prg1_1 - Schwarzer ausfahrbahrer Arm
+#prg2_1 - Roter Schiebe mechanismus beim solarfeld
+
 prg_lst = [prg1_1, prg2_1, prg3_1]
 prg_len = len(prg_lst)
 

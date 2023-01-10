@@ -11,21 +11,14 @@ import sys, os
 sys.path.insert(0, "/home/robot/superpowerd-season")
 
 from botconfig import MotorTop, MotorFront, MotorLeft, MotorRight, Gyro, ColorLeft, ColorRight, Base
-from toolkit import GyroDrive
+from toolkit import GyroDrive, GyroTurn
 
 PrgName = __file__.split("/")[-1][:-3]
-#working Haudrauf 2.0
-def run():
-    Gyro.reset_angle(0)
-    gyro0 = Gyro.angle()
-    Base.settings(50,50,50,50)
 
-    MotorTop.run_angle(300, -100)
-    GyroDrive(-500,300, gyro0)
-    wait(500)
-    GyroDrive(-200,100, gyro0)
-    MotorTop.run_angle(400, -600)
-    GyroDrive(800,400)
+
+def run():
+    
+    
 
 
 if __name__ == "__main__":
