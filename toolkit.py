@@ -77,13 +77,14 @@ def GyroDrive(distance:int, speed:float=200, gyro_start:int=Gyro.angle(),factor:
     print(gyro_start)
 
 def GyroTurn(angle:int,speed:int):
-
-    if angle > 0:
+    turned = False
+    if angle >= 0:
         while Gyro.angle() <= angle:
             print(Gyro.angle())
             Base.drive(-speed,-speed)
+        turned = True
 
-    elif angle < 0:
+    if angle <= 0 and  turned is False:
         while Gyro.angle() >= angle:
             print(Gyro.angle())
             Base.drive(speed,speed)
