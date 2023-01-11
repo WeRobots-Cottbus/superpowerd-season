@@ -8,5 +8,5 @@
 <li style = "color:green">GyroDrehung</li>
 <li>Auswahl der Programme durch Farbstein</li>
 <li>OFFSeason: Pathfinder</li>
-[comment]: <> (PAthfinder: gebe coordinaten und dann bewege ich mich zu diesn coordianten(https://www.youtube.com/watch?v=pYHA1DZmT4Q))
+[//]: # "https://www.youtube.com/watch?v=pYHA1DZmT4Q"
 </ul>
