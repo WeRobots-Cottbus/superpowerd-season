@@ -79,7 +79,7 @@ def GyroDrive(distance:int, speed:float=200, gyro_start:int=Gyro.angle(),factor:
 
     Base.stop()
     Base.reset()
-    print(f"Gestartet bei: {gyro_start}\n Geendet bei: {Gyro.angle()}")
+    print("Gestartet bei: "+ str(gyro_start) +"\n Geendet bei: " + str(Gyro.angle()))
 
 #drehung auf einen gyrowert
 #nutzung in userem Program nicht als jede drehung einzel sonder ein 0 wert wird gesetzt un darauf wird

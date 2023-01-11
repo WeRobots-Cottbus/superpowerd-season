@@ -9,19 +9,19 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 
 from botconfig import *
 from toolkit import *
-from programs import prg1_1, prg2_1, prg3_1
+from programs import prg1_1, prg2_1, prg3_1, prg4_1
 
 #prg1_1 - Schwarzer ausfahrbahrer Arm
 #prg2_1 - Roter Schiebe mechanismus beim solarfeld
 
-prg_lst = [prg1_1, prg2_1, prg3_1]
+prg_lst = [prg1_1, prg2_1, prg3_1,prg4_1]
 prg_len = len(prg_lst)
 
 prg_prev = lambda x: (x - 1) % prg_len
 prg_next = lambda x: (x + 1) % prg_len
 
 def loop():
-    prg2_1.run()# tenp
+    prg4_1.run()# tenp
     prg_sel = 0
     DisplayText(prg_lst[prg_sel].PrgName, (0,4),True)
     while True:

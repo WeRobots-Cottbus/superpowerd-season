@@ -16,8 +16,15 @@ from toolkit import GyroDrive, GyroTurn
 PrgName = __file__.split("/")[-1][:-3]
 
 
-def run():
-    
+def run():    
+    #initilazing variables
+    Gyro.reset_angle(0)
+    gyro0 = Gyro.angle()
+    #programm
+    GyroDrive(-250,250,gyro0)
+    GyroTurn(gyro0+45,20)
+
+
     
 
 
