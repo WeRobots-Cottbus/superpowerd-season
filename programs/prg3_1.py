@@ -21,8 +21,23 @@ def run():
     Gyro.reset_angle(0)
     gyro0 = Gyro.angle()
     #programm
-    GyroDrive(-250,250,gyro0)
-    GyroTurn(gyro0+45,20)
+    GyroDrive(450,300,gyro0)
+    GyroTurn(gyro0+28,20)
+    MotorFront.run_angle(400,490,Stop.HOLD,False)
+    GyroDrive(515,350,gyro0+32)
+    wait(500)
+    GyroDrive(-140,250,gyro0)
+    GyroTurn(gyro0+90,35)
+    GyroTurn(gyro0+90,5)
+    GyroDrive(-130,250,gyro0+90,5)
+    GyroDrive(10,400,gyro0+90)
+    GyroDrive(-10,400,gyro0+90)
+    GyroDrive(15,400,gyro0+90)
+    GyroTurn(gyro0-20,100)
+    GyroDrive(700,400,gyro0-20)
+
+
+
 
 
     

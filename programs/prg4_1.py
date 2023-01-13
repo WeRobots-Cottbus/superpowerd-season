@@ -25,35 +25,37 @@ def run():
     GyroTurn(gyro0+45,50)#drehung in auto
     GyroDrive(-200,400,gyro0+45)#weiter zum auto
     GyroTurn(gyro0,50)
-    GyroDrive(-400,400,gyro0)#an die wand kacheln
-    GyroDrive(15,250,gyro0)
-    GyroTurn(gyro0+130,40)
+    GyroDrive(-400,250,gyro0)#an die wand kacheln
+    GyroDrive(19,250,gyro0)
+    GyroTurn(gyro0+130,70)
     GyroTurn(gyro0+135,15)#drehung richtung windrad
     
-    GyroDrive(200,300,gyro0+135,10)#ran
-    wait(250)
-    GyroDrive(-120,250,gyro0+135,5)#zurück
+    GyroDrive(200,250,gyro0+135,10)#ran
+    wait(350)
+    GyroDrive(-90,250,gyro0+135,5)#zurück
     
-    GyroDrive(150,250,gyro0+135,10)#ran
-    wait(250)
-    GyroDrive(-120,250,gyro0+135,5)#zurück
+    GyroDrive(120,250,gyro0+135,10)#ran
+    wait(350)
+    GyroDrive(-90,250,gyro0+135,5)#zurück
 
-    GyroDrive(150,250,gyro0+135,10)#ran
-    GyroDrive(-27,250,gyro0+135,5)#zurück
-    wait(250)
-    GyroTurn(gyro0-60,40)
-    GyroDrive(90,150,gyro0-55)
-    GyroTurn(gyro0-10,15)
+    GyroDrive(120,250,gyro0+135,10)#ran
+    wait(350)
+    GyroDrive(-55,200,gyro0+135,5)#zurück
+    
+    GyroTurn(gyro0-40,70)#drehung mit einheiten zum trichter
+    GyroTurn(gyro0-56,15)#end drehung genauer
+    GyroDrive(130,150,gyro0-55)
+    GyroTurn(gyro0-20,20)
     wait(1000)
-    MotorFront.run_angle(400,300)
-    GyroDrive(-50,150,gyro0-10)
-    GyroTurn(gyro0+43,30)
-    GyroDrive(40,150,gyro0+44)
-    MotorTop.run_time(-1500,500)
-    GyroDrive(-50,150,gyro0+44)
-    MotorTop.run_time(1500,1500)
-    MotorTop.run_time(-1500,500)
-    GyroDrive(300,400,gyro0+40)
+    MotorFront.run_angle(300,400)#behäter hoch damit einhaiten liegen
+    GyroDrive(-50,150,gyro0-10)#zurück
+    GyroTurn(gyro0+43,30)#drehung zum auto
+    GyroDrive(40,150,gyro0+44)#zurüc damit stange runter geht
+    MotorTop.run_time(-1500,500)#runter stange
+    GyroDrive(-30,150,gyro0+44)#vor 
+    MotorTop.run_time(1500,1500)#stange hoch
+    MotorTop.run_time(-1500,500)#stange runter
+    GyroDrive(300,400,gyro0+40)#zurück in die base
     MotorTop.run_time(1500,1000)
     GyroDrive(800,400,gyro0+30)
     

@@ -14,8 +14,9 @@ MotorLeft = Motor(Port.B)
 MotorRight = Motor(Port.C)
 MotorTop = Motor(Port.D)
 
-Gyro       = GyroSensor(Port.S1)
+Gyro= GyroSensor(Port.S1)
+ColorRight = ColorSensor(Port.S2)
 ColorLeft  = ColorSensor(Port.S3)
-ColorRight = ColorSensor(Port.S4)
+ColorUp = ColorSensor(Port.S4)
 
 Base = DriveBase(MotorLeft, MotorRight, 57, 154)
