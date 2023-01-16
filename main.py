@@ -42,5 +42,29 @@ def loop():
         # ui delay
         wait(250)
 
+def color_selection():
+    while True:
+        color = Colordetect.color()
+        print(color)
+        if color == Color.BLUE: color=None
+        if Button.CENTER in Brick.buttons.pressed():
+
+            if color is not None:
+                if color is Color.RED:
+                    prg1_1.run()
+                elif color is Color.YELLOW:
+                    print("Gelb")
+                elif color is Color.WHITE:
+                    print("Weiß")
+                elif color is Color.GREEN:
+                    print("Grün")
+                elif color is Color.BLACK:
+                    print("Schwarz")
+            else:
+                DisplayText("Keine Farbe erkannt",(0,6))
+                wait(500)
+
 if __name__ == "__main__":
-    loop()
+    color_selection()
+
+
