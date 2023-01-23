@@ -46,6 +46,7 @@ def color_selection():
     while True:
         color = Colordetect.color()
         print(color)
+        wait(100)
         if color == Color.BLUE: color=None
         if Button.CENTER in Brick.buttons.pressed():
 
@@ -57,7 +58,7 @@ def color_selection():
                 elif color is Color.WHITE:
                     print("Weiß")
                 elif color is Color.GREEN:
-                    print("Grün")
+                    prg4_1.run()
                 elif color is Color.BLACK:
                     print("Schwarz")
             else:
@@ -65,6 +66,7 @@ def color_selection():
                 wait(500)
 
 if __name__ == "__main__":
-    color_selection()
+    prg4_1.run()
+    #color_selection()
 
 
