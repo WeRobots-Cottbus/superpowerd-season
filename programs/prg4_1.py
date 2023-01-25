@@ -67,7 +67,8 @@ def run():
     GyroTurn(gyro0+35,30)
     GyroDrive(500,300,gyro0+20)
 
-    MotorTop.run_time(-500,500)
+    MotorTop.run_time(-500,500,Stop.HOLD,False)
+    MotorFront.run_angle(300,400)
 
 
 

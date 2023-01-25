@@ -1,0 +1,20 @@
+prg3.1 -> prg4.1:	Konstantin nimmt Anbauteil ab
+			Adrian nimmt Farbplatte raus
+			Adrian dreht Roboter
+			Adrian macht neues hoch und Konstantin macht Schablone
+			Adrian macht Farbplatte und Konstantin macht Einheiten
+			Adrian nimmt Schablone weg
+			Adrian startet
+
+prg4.1 -> prg5.1:	Konstantin nimmt Anbauteil ab
+			Konstantin nimmt 3Einheiten
+			Adrian nimmt Rechargeable + Farbplatte raus
+			Adrian dreht Roboter
+			Adrian packt Schablonen hin + richtet Roboter aus
+			Konstantin packt Container und Rampe rauf
+			Adrian packt kompliziertes Anbauteile ran
+			Adrian packt Farbplatte rein
+			Konstantin startet
+			
+			
+			

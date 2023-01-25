@@ -51,16 +51,20 @@ def color_selection():
         if Button.CENTER in Brick.buttons.pressed():
 
             if color is not None:
-                if color is Color.RED:
+                if color is Color.BLACK:
+                    print("Schwarz")
                     prg1_1.run()
                 elif color is Color.YELLOW:
                     print("Gelb")
+                    prg2_1.run()
                 elif color is Color.WHITE:
                     print("Weiß")
-                elif color is Color.GREEN:
+                    prg3_1.run()
+                elif color is Color.RED:
+                    print("Rot")
                     prg4_1.run()
-                elif color is Color.BLACK:
-                    print("Schwarz")
+                elif color is Color.GREEN:
+                    print("Grün")
             else:
                 DisplayText("Keine Farbe erkannt",(0,6))
                 wait(500)
