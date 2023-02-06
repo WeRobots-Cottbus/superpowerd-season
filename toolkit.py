@@ -102,3 +102,21 @@ def GyroTurn(angle:int,speed:int=20) -> None:
 
     Base.stop()#stop der Bewegung
     Base.reset()#reset der Bewegungen
+
+#drehung mit bestimmtem drehmittelpunkt
+#zum beispiel kann man sich auf den drehpunkt auf das rechte Rad setzen und dann dreht der roboter sich um das rechte rad
+#pivot = drehpunkt
+def TurnOnPivot(angle:int,speed:int,scale:int) -> None:
+    #scale ist zwischen 0(links) - 100(rechts)
+    #linke hälfte
+    if scale < 50:
+        if Gyro.angle() < angle:
+            pass
+    #rechte hälfte
+    elif scale > 50:
+        pass
+    else:
+        GyroTurn(angle,speed)
+    turned = False
+
+    

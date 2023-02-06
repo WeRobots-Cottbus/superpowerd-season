@@ -65,12 +65,13 @@ def color_selection():
                     prg4_1.run()
                 elif color is Color.GREEN:
                     print("Grün")
+                    prg5_1.run()
             else:
                 DisplayText("Keine Farbe erkannt",(0,6))
                 wait(500)
 
 if __name__ == "__main__":
-    prg4_1.run()
-    #color_selection()
+    
+    color_selection()
 
 

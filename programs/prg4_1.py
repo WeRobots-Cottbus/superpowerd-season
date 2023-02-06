@@ -48,12 +48,12 @@ def run():
 
 
     MotorTop.run_time(300,430)
-
+    wait(2000)
     GyroDrive(35,200,gyro0+45)
     MotorTop.run_time(-300,800)
     GyroDrive(-95,200,gyro0+45)
     MotorTop.run_time(500,600)
-    GyroDrive(-90,200,gyro0+30,5)
+    GyroDrive(-90,200,gyro0+25,5)
 
     MotorTop.run_time(-600,700)
     MotorTop.run_time(600,500)
@@ -62,13 +62,13 @@ def run():
     MotorTop.run_time(-600,700)
 
     GyroDrive(90,300,gyro0+40)
-    MotorTop.run_time(400,800)
+    MotorTop.run_time(400,1000)
 
     GyroTurn(gyro0+35,30)
     GyroDrive(500,300,gyro0+20)
 
     MotorTop.run_time(-500,500,Stop.HOLD,False)
-    MotorFront.run_angle(300,400)
+    MotorFront.run_angle(300,150)
 
 
 

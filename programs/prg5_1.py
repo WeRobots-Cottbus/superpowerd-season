@@ -24,11 +24,11 @@ def run():
     #program
     GyroDrive(550,300,gyro0,5)#fahrt richtung power to x
     GyroTurn(gyro0-45,40)#drehung ruchtung power to x
-    GyroDrive(150,300,gyro0-45,5)#direkt zu power to x
-    MotorFront.run_time(-400,500)#gabel runter
+    GyroDrive(170,300,gyro0-45,5)#direkt zu power to x
+    MotorFront.run_time(-300,900)#gabel runter
     GyroDrive(-70,300,gyro0-45)#kurz zurück um sie abzulegen
-    GyroTurn(gyro0,40)#drehung richtung wasserresavoir
-    GyroDrive(215,300,gyro0,5)#fahrt richtung wasserresavoir
+    GyroTurn(gyro0,30)#drehung richtung wasserresavoir
+    GyroDrive(155,300,gyro0,5)#fahrt richtung wasserresavoir
     GyroTurn(gyro0-45,40)#drehung auf wasserresavoir
     GyroDrive(250,100,gyro0-45,1)#direkt auf wassereasavoir
     MotorTop.run_angle(180,180,Stop.HOLD,False)#einhaite rolle zur base
