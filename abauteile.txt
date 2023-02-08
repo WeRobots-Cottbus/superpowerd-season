@@ -1,3 +1,21 @@
+IMMER NACH START PLATTEN HOCH
+
+prg1.1 -> prg2.1:	Paul nimmt vorne weg
+			Max macht Platten und hinten + Farbplatte weg
+			Paul macht vorne rauf
+			Max macht hinten rauf + Farbplatte rein
+			Paul startet
+
+prg2.1 -> prg3.1:	Paul macht vorne drauf
+			Paul macht Energieeinheit rein und nimmt vorne ab
+			Max nimmt hinten ab + Farbplatte weg + nimmt Schub und packt Energie rein
+			Paul nimmt alle blauen und hängt an Haken
+			Paul dreht den Roboter
+			Max macht hinten rauf
+			Paul macht Farbplatte rein
+			Max macht Schablonen hin + Roboter ausrichten
+			Paul startet
+
 prg3.1 -> prg4.1:	Konstantin nimmt Anbauteil ab
 			Adrian nimmt Farbplatte raus
 			Adrian dreht Roboter
