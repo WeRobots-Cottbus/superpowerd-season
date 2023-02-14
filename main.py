@@ -45,7 +45,7 @@ def loop():
 def color_selection():
     while True:
         color = Colordetect.color()
-        print(color)
+        #DisplayText(str(color), (1,5))
         wait(100)
         if color == Color.BLUE: color=None
         if Button.CENTER in Brick.buttons.pressed():

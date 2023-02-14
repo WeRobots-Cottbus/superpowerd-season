@@ -22,8 +22,8 @@ def run():
     gyro0 = Gyro.angle()
     #programm
     GyroDrive(-260,350,gyro0)#erste geradeaus
-    GyroDrive(-530,200,gyro0+45,1.5)
-    MotorTop.run_time(300,280)
+    GyroDrive(-530,200,gyro0+45,1.5)#runde fahrt
+    MotorTop.run_time(300,280)#
     GyroDrive(150,300,gyro0+45)
     GyroDrive(-100,300,gyro0+45)
     GyroTurn(gyro0-45,30)
@@ -41,7 +41,7 @@ def run():
 
     GyroDrive(-80,150,gyro0-45,5)
     wait(500)
-    GyroDrive(100,250,gyro0-25,6)
+    GyroDrive(110,300,gyro0-25,5)
 
     GyroTurn(gyro0+45,30)
     GyroDrive(50,300,gyro0+45)
@@ -55,8 +55,8 @@ def run():
     MotorTop.run_time(500,600)
     GyroDrive(-90,200,gyro0+25,5)
 
-    MotorTop.run_time(-600,700)
-    MotorTop.run_time(600,500)
+    MotorTop.run_time(-500,700)
+    MotorTop.run_time(500,500)
 
     GyroDrive(25,300,gyro0+33)
     MotorTop.run_time(-600,700)
@@ -67,8 +67,8 @@ def run():
     GyroTurn(gyro0+35,30)
     GyroDrive(500,300,gyro0+20)
 
-    MotorTop.run_time(-500,500,Stop.HOLD,False)
-    MotorFront.run_angle(300,150)
+    MotorTop.run_time(-600,500,Stop.HOLD,False)
+    MotorFront.run_angle(400,150)
 
 
     
