@@ -71,13 +71,6 @@ def run():
     MotorFront.run_angle(300,150)
 
 
-
-    
-
-
-
-
-
     
 
 
