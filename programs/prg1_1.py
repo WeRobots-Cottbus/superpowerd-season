@@ -26,36 +26,38 @@ def run():
     Gyro.reset_angle(0)
     gyro0 = Gyro.angle()
 
-    GyroDrive(365,250,gyro0,5)#erste geradeaus
+    GyroDrive(365,250,gyro0,4)#erste geradeaus
     wait(100)
-    GyroDrive(105,150,gyro0)#langsamer wegen
+    GyroDrive(105,150,gyro0+5,5)#langsamer wegen
     wait(500)
     GyroDrive(-113,200,gyro0)#zurück
     GyroTurn(gyro0+45,25)#drehung
-    GyroDrive(466,250,gyro0+45,True)#danach geradeaus#temp###455
+    GyroDrive(460,250,gyro0+45,True)#danach geradeaus#temp###455
     wait(250)
     GyroTurn(gyro0+88,20)#drehen bei trichter
     #temp änderung
     GyroTurn(gyro0+90,5)
-    GyroDrive(625,200,gyro0+90,True)#fahren zur hand
+    GyroDrive(675,200,gyro0+92,True,4)#fahren zur hand
     wait(250)
     MotorTop.run_time(500,1200)#dingsbums raus
     wait(250)
-    MotorTop.run_time(-300,1500)#dingsbums rein
+    MotorTop.run_time(-800,1500)#dingsbums rein
     wait(500)
-    GyroDrive(115,200,gyro0+90,True)#kurz geradeaus bis zum solarfeld
-    MotorTop.run_angle(600,800)#raus zum solarfeld
-    GyroDrive(500,150,gyro0+90,7)#geradeaus
+    GyroDrive(135,200,gyro0+92,True,4)#kurz geradeaus bis zum solarfeld
+    MotorTop.run_angle(600,950)#raus zum solarfeld
+    GyroDrive(400,150,gyro0+91,7)#geradeaus
+    MotorTop.run_time(-450,1900)#dingsbums wieder rein
+    GyroDrive(50,150,90,4)
 
     MotorFront.run_time(400,1600)#gabel hoch
-    MotorFront.run_time(-400,1100)#gabel runter
+    MotorFront.run_time(-400,900)#gabel runter
     
     MotorFront.run_time(400,1400)#gabel hoch
-    MotorFront.run_time(-400,1100)#gabel runter
+    MotorFront.run_time(-400,900)#gabel runter
 
     MotorFront.run_time(400,1600)#gabel hoch
+        
 
-    MotorTop.run_time(-450,1900)#dingsbums wieder rein
 
     GyroDrive(-90,200,gyro0+90)#kurz wieder zurück
     Base.turn(-60)#drehung base

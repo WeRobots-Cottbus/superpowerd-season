@@ -58,7 +58,7 @@ def DisplayTextMatrix(text:list|str, clear:bool=False, **kwargs) -> None:
     [ DisplayText(line, (i,0), False, **kwargs) for i, line in enumerate(text[:12]) ]
 
 
-# gyro geradeaus
+#gyro geradeaus
 #hier fahren wir geradeaus und checken dauerhaft wie unser gyro wert sich verändert
 #wenn der wert sich in eine richtung(negativ oder postiv) verändert dann bewegen verändern wir unsere bewegung
 #in die zu lösende richtung

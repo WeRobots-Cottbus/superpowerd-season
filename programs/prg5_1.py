@@ -28,7 +28,7 @@ def run():
     MotorFront.run_time(-300,900)#gabel runter
     GyroDrive(-70,300,gyro0-45)#kurz zurück um sie abzulegen
     GyroTurn(gyro0,30)#drehung richtung wasserresavoir
-    GyroDrive(205,300,gyro0,5)#fahrt richtung wasserresavoir
+    GyroDrive(210,200,gyro0,4)#fahrt richtung wasserresavoir
     GyroTurn(gyro0-45,40)#drehung auf wasserresavoir
     GyroDrive(250,100,gyro0-45,1)#direkt auf wassereasavoir
     MotorTop.run_angle(180,180,Stop.HOLD,False)#einhaite rolle zur base

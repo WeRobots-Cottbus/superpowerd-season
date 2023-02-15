@@ -48,7 +48,7 @@ def run():
 
 
     MotorTop.run_time(300,430)
-    wait(2000)
+    wait(500)
     GyroDrive(35,200,gyro0+45)
     MotorTop.run_time(-300,800)
     GyroDrive(-95,200,gyro0+45)

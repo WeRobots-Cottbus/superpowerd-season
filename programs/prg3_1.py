@@ -23,7 +23,6 @@ def run():
     #programm
     GyroDrive(450,300,gyro0)
     GyroTurn(gyro0+28,20)
-    MotorFront.run_angle(400,490,Stop.HOLD,False)
     GyroDrive(515,350,gyro0+32)
     wait(500)
     GyroDrive(-140,250,gyro0)
