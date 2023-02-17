@@ -14,8 +14,8 @@ MotorLeft = Motor(Port.B)
 MotorRight = Motor(Port.C)
 MotorTop = Motor(Port.D)
 
-Gyro= GyroSensor(Port.S1)
-ColorRight = ColorSensor(Port.S2)#ColorSensor(Port.S2)
+Gyro = GyroSensor(Port.S1)
+ColorRight = ColorSensor(Port.S2)
 ColorLeft  = ColorSensor(Port.S3)
 Colordetect = ColorSensor(Port.S4)
 
