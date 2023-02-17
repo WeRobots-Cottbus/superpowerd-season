@@ -29,8 +29,8 @@ def run():
     GyroDrive(-130,200,gyro0)#zu box hin
     GyroDrive(150,250)#zurück zum wasserdings
     GyroDrive(80,100,gyro0)#wasserdings auslösen
-    GyroTurn(gyro0-40,30)#drehung in base 
-    GyroDrive(470,300,gyro0-40)#fahr in die base
+    GyroTurn(gyro0-45,30)#drehung in base 
+    GyroDrive(470,300,gyro0-45)#fahr in die base
 
     
 
