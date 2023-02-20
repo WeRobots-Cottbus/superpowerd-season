@@ -9,7 +9,6 @@ def selector():
     ind = 0
 
     process = None
-    running = False
     while True:
         # check if the process has finished itself
         if process is not None and process.poll() is not None:
