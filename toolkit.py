@@ -19,7 +19,7 @@ from botconfig import *
 |0,127         177,127|   |0,11            21,11|   |-177,127      177,127|
 +---------------------+   +---------------------+   +---------------------+
 """
-def DisplayText(text:str, coord:tuple[int,int]=(0,0), clear:bool=False, **kwargs) -> None:
+def DisplayText(text:str, coord:tuple[int,int]=(0,0), clear:bool=True, **kwargs) -> None:
     if clear: Brick.screen.clear()
     Brick.screen.draw_text(coord[0], coord[1], text, **kwargs)
 
@@ -105,20 +105,6 @@ def GyroTurn(angle:int,speed:int=20) -> None:
     Base.stop()#stop der Bewegung
     Base.reset()#reset der Bewegungen
 
-#drehung mit bestimmtem drehmittelpunkt
-#zum beispiel kann man sich auf den drehpunkt auf das rechte Rad setzen und dann dreht der roboter sich um das rechte rad
-#pivot = drehpunkt
-def TurnOnPivot(angle:int,speed:int,scale:int) -> None:
-    #scale ist zwischen 0(links) - 100(rechts)
-    #linke hälfte
-    if scale < 50:
-        if Gyro.angle() < angle:
-            pass
-    #rechte hälfte
-    elif scale > 50:
-        pass
-    else:
-        GyroTurn(angle,speed)
-    turned = False
-
-    
+def print_message(message:str):
+    print(message)
+    DisplayText(message,[2,5])
