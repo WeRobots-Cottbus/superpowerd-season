@@ -29,23 +29,10 @@ try:
 except:
     print_message("Motor-D ERROR")
 
-#SENSOREN - Initialiesierend
-try:
-    Gyro= GyroSensor(Port.S1)
-except:
-    print_message("Sensor-1 ERROR")
-try:
-    ColorRight = ColorSensor(Port.S2)
-except:
-    print_message("Sensor-2 ERROR")
-try:
-    ColorLeft  = ColorSensor(Port.S3)
-except:
-    print_message("Sensor-3 ERROR")
-try:
-    Colordetect = ColorSensor(Port.S4)
-except:
-    print_message("Sensor-4 ERROR")
+Gyro= GyroSensor(Port.S1)
+ColorRight = ColorSensor(Port.S2)#ColorSensor(Port.S2)
+ColorLeft  = ColorSensor(Port.S3)
+Colordetect = ColorSensor(Port.S4)
 
 try:
     Base = DriveBase(MotorLeft, MotorRight, 57, 154)

@@ -26,11 +26,11 @@ def run():
     GyroTurn(gyro0-40,25)#drehung beim laster
     GyroDrive(-300,300,gyro0-40)#weiter richtung solarfeld
     GyroTurn(gyro0,20)#drehung auf box
-    GyroDrive(-100,200,gyro0)#zu box hin
+    GyroDrive(-130,200,gyro0)#zu box hin
     GyroDrive(150,250)#zurück zum wasserdings
     GyroDrive(80,100,gyro0)#wasserdings auslösen
     GyroTurn(gyro0-45,30)#drehung in base 
-    GyroDrive(450,300,gyro0-45)#fahr in die base
+    GyroDrive(470,300,gyro0-45)#fahr in die base
 
     
 

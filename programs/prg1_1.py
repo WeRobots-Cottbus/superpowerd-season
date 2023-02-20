@@ -32,12 +32,12 @@ def run():
     wait(500)
     GyroDrive(-113,200,gyro0)#zurück
     GyroTurn(gyro0+45,25)#drehung
-    GyroDrive(460,250,gyro0+45,True)#danach geradeaus#temp###455
+    GyroDrive(455,250,gyro0+45,True)#danach geradeaus#temp###455
     wait(250)
     GyroTurn(gyro0+88,20)#drehen bei trichter
     #temp änderung
     GyroTurn(gyro0+90,5)
-    GyroDrive(675,200,gyro0+92,True,4)#fahren zur hand
+    GyroDrive(645,200,gyro0+92,True,4)#fahren zur hand
     wait(250)
     MotorTop.run_time(500,1200)#dingsbums raus
     wait(250)
@@ -45,7 +45,7 @@ def run():
     wait(500)
     GyroDrive(135,200,gyro0+92,True,4)#kurz geradeaus bis zum solarfeld
     MotorTop.run_angle(600,950)#raus zum solarfeld
-    GyroDrive(400,150,gyro0+91,7)#geradeaus
+    GyroDrive(420,150,gyro0+92,7)#geradeaus
     MotorTop.run_time(-450,1900)#dingsbums wieder rein
     GyroDrive(50,150,90,4)
 

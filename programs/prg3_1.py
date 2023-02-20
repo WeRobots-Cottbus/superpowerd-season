@@ -24,16 +24,16 @@ def run():
     GyroDrive(450,300,gyro0)
     GyroTurn(gyro0+28,20)
     GyroDrive(515,350,gyro0+32)
-    wait(500)
-    GyroDrive(-140,250,gyro0)
+    wait(600)
+    GyroDrive(-155,250,gyro0)
     GyroTurn(gyro0+90,35)
     GyroTurn(gyro0+90,5)
     GyroDrive(-130,250,gyro0+90,5)
     GyroDrive(10,400,gyro0+90)
     GyroDrive(-10,400,gyro0+90)
     GyroDrive(15,400,gyro0+90)
-    GyroTurn(gyro0-20,100)
-    GyroDrive(700,400,gyro0-20)
+    GyroTurn(gyro0-15,100)
+    GyroDrive(760,400,gyro0-10)
 
 
 
