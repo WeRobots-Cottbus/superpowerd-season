@@ -11,8 +11,6 @@ from botconfig import *
 from toolkit import *
 from programs import prg1_1, prg2_1, prg3_1, prg4_1, prg5_1
 
-#prg1_1 - Schwarzer ausfahrbahrer Arm
-#prg2_1 - Roter Schiebe mechanismus beim solarfeld
 
 prg_lst = [prg1_1, prg2_1, prg3_1,prg4_1,prg5_1]
 prg_len = len(prg_lst)
@@ -43,32 +41,48 @@ def loop():
         wait(250)
 
 def color_selection():
+    Brick.color.off()
     while True:
         color = Colordetect.color()
         #DisplayText(str(color), (1,5))
         wait(100)
-        if color == Color.BLUE: color=None
+
         if Button.CENTER in Brick.buttons.pressed():
+            color = Colordetect.color()
+
+            if color == Color.BLUE: 
+                color=None
+                DisplayText("Keine Farbe erkannt",(6,6))
+                Brick.light.on(Color.RED)
+                wait(200)
+                Brick.light.off()
+                wait(300)
 
             if color is not None:
                 if color is Color.BLACK:
                     print("Schwarz")
+                    DisplayText("Schwarz->Gelb",[2,6])
+                    Brick.color.on(Color.Green)
                     prg1_1.run()
+                    Brick.color.off()
                 elif color is Color.YELLOW:
                     print("Gelb")
+                    DisplayText("Gelb->Weiß",[2,6])
+                    Brick.color.on(Color.Green)
                     prg2_1.run()
+                    Brick.color.off()
                 elif color is Color.WHITE:
                     print("Weiß")
+                    DisplayText("Weiß->Rot",[2,6])
+                    Brick.color.on(Color.Green)
                     prg3_1.run()
+                    Brick.color.off()
                 elif color is Color.RED:
                     print("Rot")
+                    DisplayText("Rot",[2,6])
+                    Brick.color.on(Color.Green)
                     prg4_1.run()
-                elif color is Color.GREEN:
-                    print("Grün")
-                    prg5_1.run()
-            else:
-                DisplayText("Keine Farbe erkannt",(0,6))
-                wait(500)
+                    Brick.color.off()
 
 if __name__ == "__main__":
     
