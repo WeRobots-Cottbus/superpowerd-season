@@ -1,5 +1,4 @@
 #!/usr/bin/env pybricks-micropython
-
 from pybricks.hubs import EV3Brick
 from pybricks.ev3devices import Motor, TouchSensor, ColorSensor, GyroSensor
 from pybricks.parameters import Port, Stop, Direction, Button, Color
@@ -16,63 +15,37 @@ from toolkit import GyroDrive, GyroTurn
 PrgName = __file__.split("/")[-1][:-3]
 
 
-def run():    
+def run():
     #initilazing variables
     Gyro.reset_angle(0)
     gyro0 = Gyro.angle()
     #programm
-    GyroDrive(-260,350,gyro0)#erste geradeaus
-    GyroDrive(-530,200,gyro0+45,1.5)#runde fahrt
-    MotorTop.run_time(300,280)#
-    GyroDrive(150,300,gyro0+45)
-    GyroDrive(-100,300,gyro0+45)
-    GyroTurn(gyro0-45,30)
-    GyroDrive(-150,150,gyro0-45,5)
-    wait(500)
-    GyroDrive(70,250,gyro0-45,5)
+    GyroDrive(-160,300,0,3,True)
+    GyroDrive(-550,250,44,1.5,False)
+    GyroDrive(-150,15,44,0.5)
+    wait(200)
+    GyroDrive(70,200,45,3,True)# weg vom auto
+    MotorTop.run_time(-300,1000)#vorne anbauteil
+    GyroDrive(20,300,45,3,True)
+    GyroTurn(135,30)#drehung auf windrad
+    wait(200)
     
-    GyroDrive(-80,150,gyro0-45,5)
+    GyroDrive(250,250,139,6)#fahrt auf rad
+    wait(600)
+    GyroDrive(-40,200,135,6)
+
+    GyroDrive(100,250,135,6)#fahrt auf rad
+    wait(600)
+    GyroDrive(-40,200,135,6)
+
+    GyroDrive(100,250,135,6)#fahrt auf rad
+    wait(600)
+    GyroDrive(-250,200,180,3,True)
+    GyroDrive(100,150,230,3,True)
+    GyroTurn(290,40)
+    GyroDrive(150,100,290,3,True)
     wait(500)
-    GyroDrive(50,250,gyro0-45,5)
-    
-    GyroDrive(-80,150,gyro0-45,5)
-    wait(500)
-    GyroDrive(50,250,gyro0-45,5)
-
-    GyroDrive(-80,150,gyro0-45,5)
-    wait(500)
-    GyroDrive(100,300,gyro0-35,5)
-
-    GyroTurn(gyro0+45,30)
-    GyroDrive(50,300,gyro0+45)
-
-
-    MotorTop.run_time(300,430)
-    wait(500)
-    GyroDrive(35,200,gyro0+45)
-    MotorTop.run_time(-300,800)
-    GyroDrive(-95,200,gyro0+45)
-    MotorTop.run_time(500,600)
-    GyroDrive(-90,200,gyro0+25,5)
-
-    MotorTop.run_time(-500,700)
-    MotorTop.run_time(500,500)
-
-    GyroDrive(25,300,gyro0+33)
-    MotorTop.run_time(-600,700)
-
-    GyroDrive(90,300,gyro0+40)
-    MotorTop.run_time(400,1000)
-
-    GyroTurn(gyro0+35,30)
-    GyroDrive(500,300,gyro0+20)
-
-    MotorTop.run_time(-600,500,Stop.HOLD,False)
-    MotorFront.run_angle(400,150)
-
-
-    
-
+    #MotorFront.run_time(300,5000)
 
 if __name__ == "__main__":
     run()
