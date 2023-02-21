@@ -59,29 +59,23 @@ def color_selection():
 
             if color is not None:
                 if color is Color.BLACK:
-                    print("Schwarz")
-                    DisplayText("Schwarz->Gelb",[2,6])
-                    Brick.color.on(Color.Green)
+                    print_message("Schwarz->Gelb")
+                    Brick.light.on(Color.GREEN)
                     prg1_1.run()
-                    Brick.color.off()
                 elif color is Color.YELLOW:
-                    print("Gelb")
-                    DisplayText("Gelb->Weiß",[2,6])
-                    Brick.color.on(Color.Green)
+                    print_message("Gelb->Weiß")
+                    Brick.light.on(Color.GREEN)
                     prg2_1.run()
-                    Brick.color.off()
                 elif color is Color.WHITE:
-                    print("Weiß")
-                    DisplayText("Weiß->Rot",[2,6])
-                    Brick.color.on(Color.Green)
+                    print_message("Weiß->Rot")
+                    Brick.light.on(Color.GREEN)
                     prg3_1.run()
-                    Brick.color.off()
                 elif color is Color.RED:
-                    print("Rot")
-                    DisplayText("Rot",[2,6])
-                    Brick.color.on(Color.Green)
+                    print_message("Rot")
+                    Brick.light.on(Color.GREEN)
                     prg4_1.run()
-                    Brick.color.off()
+                
+                Brick.light.off()
 
-if __name__ == "__main__":    
+if __name__ == "__main__":
     color_selection()
