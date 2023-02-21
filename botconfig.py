@@ -32,11 +32,22 @@ try:
 except:
     print_message("Motor-D ERROR")
 
-Gyro = GyroSensor(Port.S1)
-ColorRight = ColorSensor(Port.S2)
-ColorLeft  = ColorSensor(Port.S3)
-Colordetect = ColorSensor(Port.S4)
-
+try:
+    Gyro= GyroSensor(Port.S1)
+except:
+    print_message("SENSOR-1 ERROR")
+try:
+    ColorRight = ColorSensor(Port.S2)#ColorSensor(Port.S2)
+except:
+    print_message("SENSOR-2 ERROR")
+try:
+    ColorLeft  = ColorSensor(Port.S3)
+except:
+    print_message("SENSOR-3 ERROR")
+try:
+    Colordetect = ColorSensor(Port.S4)
+except:
+    print_message("SENSOR-4 ERROR")
 
 
 try:
