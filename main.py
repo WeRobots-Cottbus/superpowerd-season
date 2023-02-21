@@ -78,4 +78,7 @@ def color_selection():
                 Brick.light.off()
 
 if __name__ == "__main__":
-    color_selection()
+    Brick.speaker.beep()
+    prg1_1.run()
+    # color_selection()
+    wait(1_000)

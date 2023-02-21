@@ -26,42 +26,31 @@ def run():
     Gyro.reset_angle(0)
     gyro0 = Gyro.angle()
 
-    GyroDrive(365,250,gyro0,4)#erste geradeaus
-    wait(100)
-    GyroDrive(105,150,gyro0+5,5)#langsamer wegen
-    wait(500)
-    GyroDrive(-113,200,gyro0)#zurück
-    GyroTurn(gyro0+45,25)#drehung
-    GyroDrive(455,250,gyro0+45,True)#danach geradeaus#temp###455
-    wait(250)
-    GyroTurn(gyro0+88,20)#drehen bei trichter
-    #temp änderung
-    GyroTurn(gyro0+90,5)
-    GyroDrive(645,200,gyro0+92,True,4)#fahren zur hand
-    wait(250)
-    MotorTop.run_time(500,1200)#dingsbums raus
-    wait(250)
-    MotorTop.run_time(-800,1500)#dingsbums rein
-    wait(500)
-    GyroDrive(135,200,gyro0+92,True,4)#kurz geradeaus bis zum solarfeld
-    MotorTop.run_angle(600,950)#raus zum solarfeld
-    GyroDrive(420,150,gyro0+92,7)#geradeaus
-    MotorTop.run_time(-450,1900)#dingsbums wieder rein
-    GyroDrive(50,150,90,4)
+    GyroDrive(270, 300, 0, 4, True)#erste schnelle bewegung
+    GyroDrive(100, 100, 0, 6, True)#lagsam damit die einheit nicht weg fählt
+    GyroDrive(-110, 200, 0, 4, True)#zurück für die drehung auf rampe hin
+    GyroTurn(47, 20)#drehung auf rampe hin
+    GyroDrive(510, 300, 47, 4, True)#fahrt auf zur Rampe
+    #entwerder jetzt schräg auf 90 grad oder einfache normal drehen
+    GyroDrive(100, 100, 80, 3, True)# magic auf 90 drehen
+    GyroDrive(300, 300, 90, 2, True)# magic auf 90 drehen
+    GyroTurn(90, 10)#drehung auf genau 90
 
-    MotorFront.run_time(400,1600)#gabel hoch
-    MotorFront.run_time(-400,900)#gabel runter
-    
-    MotorFront.run_time(400,1400)#gabel hoch
-    MotorFront.run_time(-400,900)#gabel runter
+    GyroDrive(380, 300, 90, 3, True)#fahrt bis kurz nach der Hand
+    MotorTop.run_angle(400, 1_100)#speed, angle raus um die einheite mit zu nehmen und die hand zulösen
+    GyroDrive(260, 300, 90, 6)#fahrt bis kurz richtung öl
+    MotorTop.run_angle(400, -1_200)#speed, angle arm wieder rein
 
-    MotorFront.run_time(400,1600)#gabel hoch
-        
+    GyroDrive(-10, 300, 90, 6, True)# öl auslösen
+    GyroDrive(10, 300, 90, 6)
+    GyroDrive(-10, 300, 90, 6, True)
+    GyroDrive(10, 300, 90, 6)
+    GyroDrive(-10, 300, 90, 6, True)
+    GyroDrive(10, 300, 90, 6)
+    GyroDrive(-40, 300, 90, 6, True) # kurz von öl weg
 
-
-    GyroDrive(-90,200,gyro0+90)#kurz wieder zurück
-    Base.turn(-60)#drehung base
-    GyroDrive(700,500,gyro0+90+60)#zur base
+    GyroTurn(140, 100)
+    GyroDrive(1_500, 400, 140, 5)#in die Base
 
 
 if __name__ == "__main__":
