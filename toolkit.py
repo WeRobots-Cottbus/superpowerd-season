@@ -62,7 +62,7 @@ def DisplayTextMatrix(text:list|str, clear:bool=False, **kwargs) -> None:
 #hier fahren wir geradeaus und checken dauerhaft wie unser gyro wert sich verändert
 #wenn der wert sich in eine richtung(negativ oder postiv) verändert dann bewegen verändern wir unsere bewegung
 #in die zu lösende richtung
-def GyroDrive(distance:int, speed:float=200, gyro_start:int=Gyro.angle(), factor:int=3, brake:bool=False) -> None:
+def GyroDrive(distance:int, speed:float=200, gyro_start:int = 0, factor:int=3, brake:bool=False) -> None:
     Base.reset()
 
     #rückwärts Bewegung

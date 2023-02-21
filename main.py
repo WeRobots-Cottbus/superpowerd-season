@@ -41,7 +41,6 @@ def loop():
         wait(250)
 
 def color_selection():
-    Brick.color.off()
     while True:
         color = Colordetect.color()
         #DisplayText(str(color), (1,5))
@@ -84,8 +83,5 @@ def color_selection():
                     prg4_1.run()
                     Brick.color.off()
 
-if __name__ == "__main__":
-    
+if __name__ == "__main__":    
     color_selection()
-
-

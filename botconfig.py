@@ -7,12 +7,15 @@ from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 
-from toolkit import print_message
 
 Brick = EV3Brick()
+from toolkit import DisplayText
+def print_message(message:str):
+    print(message)
+    DisplayText(message,[2,5])
 
 #MOTOREN - Initialiesierend
-try:
+try:    
     MotorFront = Motor(Port.A)
 except:
     print_message("Motor-A ERROR")
@@ -29,10 +32,12 @@ try:
 except:
     print_message("Motor-D ERROR")
 
-Gyro= GyroSensor(Port.S1)
-ColorRight = ColorSensor(Port.S2)#ColorSensor(Port.S2)
+Gyro = GyroSensor(Port.S1)
+ColorRight = ColorSensor(Port.S2)
 ColorLeft  = ColorSensor(Port.S3)
 Colordetect = ColorSensor(Port.S4)
+
+
 
 try:
     Base = DriveBase(MotorLeft, MotorRight, 57, 154)
