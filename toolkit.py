@@ -7,56 +7,37 @@ from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 
-from botconfig import *
+from math import pi
+
+from botconfig import Brick, MotorFront, MotorLeft, MotorRight, MotorTop, Gyro, ColorRight, ColorLeft, ColorDetect, Base
+from botconfig import AxleTrack, WheelDiameter
 
 """
-  for pixel placement       for text placement        for image placement
-+---------------------+   +---------------------+   +---------------------+
-|0,0             177,0|   |0,0              21,0|   |-177,-127    -177,127|
-|                     |   |                     |   |                     |
-|    Drawing Grid     |   |      Grid Array     |   |     Pixel Array     |
-|                     |   |                     |   |                     |
-|0,127         177,127|   |0,11            21,11|   |-177,127      177,127|
-+---------------------+   +---------------------+   +---------------------+
++---------------------+
+|0,0              21,0|
+|                     |
+|      Grid Array     |
+|                     |
+|0,11            21,11|
++---------------------+
 """
 def DisplayText(text:str, coord:tuple[int,int]=(0,0), clear:bool=True, **kwargs) -> None:
     if clear: Brick.screen.clear()
     Brick.screen.draw_text(coord[0], coord[1], text, **kwargs)
 
-
-GridArray_Debug = [
-    ["0,0               21,0"],
-    ["                      "],
-    ["                      "],
-    ["                      "],
-    ["                      "],
-    ["      Grid Array      "],
-    ["  for text placement  "],
-    ["                      "],
-    ["                      "],
-    ["                      "],
-    ["                      "],
-    ["0,11             21,11"]
-]
-GridArray_Box = [
-    ["+--------------------+"],
-    ["|                    |"],
-    ["|                    |"],
-    ["|                    |"],
-    ["|                    |"],
-    ["|                    |"],
-    ["|                    |"],
-    ["|                    |"],
-    ["|                    |"],
-    ["|                    |"],
-    ["|                    |"],
-    ["+--------------------+"]
-]
-def DisplayTextMatrix(text:list|str, clear:bool=False, **kwargs) -> None:
-    if clear: Brick.screen.clear()
-    if type(text) is str: text = text.split("\n")
-    [ DisplayText(line, (i,0), False, **kwargs) for i, line in enumerate(text[:12]) ]
-
+# pivot:    |--------x--------|
+#           -        0        +
+def TurnOnPivot(pivot:float, relative_angle:float, speed:float, stop:Stop=Stop.HOLD) -> None:
+    # calculate the distance and the corresponding angle
+    # formular: s = alpha/360° * 2pi * r
+    distance_left = relative_angle/360 * 2*pi * (pivot + AxleTrack/2)
+    distance_right = relative_angle/360 * 2*pi * (AxleTrack/2 - pivot)
+    # formular: gamma = s/U * 360 = s/(pi*d) * 360
+    angle_left = distance_left/(pi*WheelDiameter) * 360
+    angle_right = distance_right/(pi*WheelDiameter) * 360
+    # run angle
+    MotorLeft.run_angle(speed, angle_left, stop, False)
+    MotorRight.run_angle(speed, -angle_right, stop, False)
 
 #gyro geradeaus
 #hier fahren wir geradeaus und checken dauerhaft wie unser gyro wert sich verändert
