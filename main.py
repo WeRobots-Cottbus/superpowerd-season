@@ -8,7 +8,7 @@ from toolkit import *
 from programs import prg1_1, prg2_1, prg3_1, prg4_1, prg5_1
 
 
-PRG_LST = [prg1_1, prg2_1, prg3_1,prg4_1,prg5_1]
+PRG_LST = [prg1_1, prg2_1, prg3_1, prg4_1, prg5_1]
 PRG_LEN = len(PRG_LST)
 
 PRG_PREV = lambda x: (x - 1) % PRG_LEN
@@ -40,7 +40,6 @@ def button_selection():
 def color_selection():
     while True:
         color = ColorDetect.color()
-        #DisplayText(str(color), (1,5))
         wait(100)
 
         if Button.CENTER in Brick.buttons.pressed():

@@ -12,16 +12,26 @@ import sys
 Brick = EV3Brick()
 
 # helper functions for catch init errors
+def text_wrap(text:str, length:int) -> str:
+    out = []
+    while text:
+        out.append(text[:length])
+        text = text[:length]
+    return "\n".join(out)
+
 def print_message(message:str):
     print(message)
     Brick.screen.clear()
-    Brick.screen.draw_text(2, 5, message)
+    y_pos = 5
+    for line in text_wrap(message, 25).split("\n"):
+        Brick.screen.draw_text(2, y_pos, line)
+        y_pos += 10
 
 def wait_exit(ms:int=2_000):
     wait(ms)
     sys.exit()
 
-print_error = lambda port, name: f"[ERR] Port {port}: '{name}'"
+print_error = lambda port, name: print_message("ERR Port {}: '{}'".format(port, name))
 
 # Init Motors
 try:
@@ -71,5 +81,5 @@ except:
 try:
     Base = DriveBase(MotorLeft, MotorRight, 57, 154)
 except:
-    print_message("[ERR] Drivebase")
+    print_message("ERR Drivebase")
     wait_exit()

@@ -104,7 +104,3 @@ def GyroTurn(angle:int,speed:int=20) -> None:
 
     Base.stop()#stop der Bewegung
     Base.reset()#reset der Bewegungen
-
-def print_message(message:str):
-    print(message)
-    DisplayText(message,[2,5])
