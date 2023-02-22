@@ -28,6 +28,7 @@ def DisplayText(text:str, coord:tuple[int,int]=(0,0), clear:bool=True, **kwargs)
 # pivot:    |--------x--------|
 #           -        0        +
 def TurnOnPivot(pivot:float, relative_angle:float, speed:float, stop:Stop=Stop.HOLD) -> None:
+    if relative_angle == 0: return
     # calculate the distance and the corresponding angle
     # formular: s = alpha/360° * 2pi * r
     distance_left = relative_angle/360 * 2*pi * (pivot + AxleTrack/2)
