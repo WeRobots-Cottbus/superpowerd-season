@@ -9,68 +9,66 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 
 import sys
 
+# Init Brick
 Brick = EV3Brick()
-def DisplayText(text:str, coord:tuple[int,int]=(0,0), clear:bool=True, **kwargs) -> None:
-    if clear: Brick.screen.clear()
-    Brick.screen.draw_text(coord[0], coord[1], text, **kwargs)
+
+# helper functions for catch init errors
 def print_message(message:str):
     print(message)
-    DisplayText(message, (2,5))
+    Brick.screen.clear()
+    Brick.screen.draw_text(2, 5, message)
 
-#MOTOREN - Initialiesierend
-try:    
+def wait_exit(ms:int=2_000):
+    wait(ms)
+    sys.exit()
+
+# Init Motors
+try:
     MotorFront = Motor(Port.A)
 except:
-    print_message("Motor-A ERROR")
-    wait(2000)
-    sys.exit()
+    print_message("[ERROR] Port A: 'Motor Front'")
+    wait_exit()
 try:
     MotorLeft = Motor(Port.B)
 except:
-    print_message("Motor-B ERROR")
-    wait(2000)
-    sys.exit()
+    print_message("[ERROR] Port B: 'Motor Left'")
+    wait_exit()
 try:
     MotorRight = Motor(Port.C)
 except:
-    print_message("Motor-C ERROR")
-    wait(2000)
-    sys.exit()
+    print_message("[ERROR] Port C: 'Motor Right'")
+    wait_exit()
 try:
     MotorTop = Motor(Port.D)
 except:
-    print_message("Motor-D ERROR")
-    wait(2000)
-    sys.exit()
+    print_message("[ERROR] Port D: 'Motor Top'")
+    wait_exit()
+
+# Init Sensors
 try:
     Gyro= GyroSensor(Port.S1)
 except:
-    print_message("SENSOR-1 ERROR")
-    wait(2000)
-    sys.exit()
+    print_message("[ERROR] Port 1: 'Gyro'")
+    wait_exit()
 try:
-    ColorRight = ColorSensor(Port.S2)#ColorSensor(Port.S2)
+    ColorRight = ColorSensor(Port.S2)
 except:
-    print_message("SENSOR-2 ERROR")
-    wait(2000)
-    sys.exit()
+    print_message("[ERROR] Port 2: 'Color Right'")
+    wait_exit()
 try:
     ColorLeft  = ColorSensor(Port.S3)
 except:
-    print_message("SENSOR-3 ERROR")
-    wait(2000)
-    sys.exit()
+    print_message("[ERROR] Port 3: 'Color Left'")
+    wait_exit()
 try:
     Colordetect = ColorSensor(Port.S4)
 except:
-    print_message("SENSOR-4 ERROR")
-    wait(2000)
-    sys.exit()
+    print_message("[ERROR] Port 4: 'Color Detect'")
+    wait_exit()
 
-
+# Init Base
 try:
     Base = DriveBase(MotorLeft, MotorRight, 57, 154)
 except:
-    print_message("DriveBase ERROR")
-    wait(2000)
-    sys.exit()
+    print_message("[ERROR] Drivebase")
+    wait_exit()
