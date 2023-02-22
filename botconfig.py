@@ -1,16 +1,31 @@
 #!/usr/bin/env pybricks-micropython
 
 from pybricks.hubs import EV3Brick
-from pybricks.parameters import Color
+from pybricks.parameters import Color, Port, Direction, Stop
 from pybricks.ev3devices import Motor, ColorSensor, GyroSensor
-from pybricks.parameters import Port
 from pybricks.tools import wait
 from pybricks.robotics import DriveBase
 
 import sys
+from math import pi
+
+# config Base parameters
+WheelDiameter = 57
+AxleTrack = 154
 
 # Init Brick
 Brick = EV3Brick()
+
+# expand Motor class
+class Motor(Motor):
+    def __init__(self, port:Port, positive_direction:Direction=Direction.CLOCKWISE, gears:list=[], reset_angle:bool=True):
+        super().__init__(port, positive_direction, gears, reset_angle)
+    # alias for run_angle
+    def run_angel(self, speed:int, rotation_angle:int, then:Stop=Stop.HOLD, wait:bool=True):
+        super().run_angle(speed, rotation_angle, then, wait)
+    # run distance in mm
+    def run_distance(self, speed:int, distance_mm:int, then:Stop=Stop.HOLD, wait:bool=True):
+        super().run_angle(speed, distance_mm/(pi*WheelDiameter) * 360, then, wait)
 
 # helper functions for catch init errors
 def text_wrap(text:str, length:int) -> str:
@@ -82,8 +97,6 @@ except:
 
 # Init Base
 try:
-    WheelDiameter = 57
-    AxleTrack = 154
     Base = DriveBase(MotorLeft, MotorRight, WheelDiameter, AxleTrack)
 except:
     print_message("[ERROR] Drivebase")

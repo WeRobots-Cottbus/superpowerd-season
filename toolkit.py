@@ -33,12 +33,9 @@ def TurnOnPivot(pivot:float, relative_angle:float, speed:float, stop:Stop=Stop.H
     # formular: s = alpha/360° * 2pi * r
     distance_left = relative_angle/360 * 2*pi * (pivot + AxleTrack/2)
     distance_right = relative_angle/360 * 2*pi * (AxleTrack/2 - pivot)
-    # formular: gamma = s/U * 360 = s/(pi*d) * 360
-    angle_left = distance_left/(pi*WheelDiameter) * 360
-    angle_right = distance_right/(pi*WheelDiameter) * 360
     # run angle
-    MotorLeft.run_angle(speed, angle_left, stop, False)
-    MotorRight.run_angle(speed, -angle_right, stop, False)
+    MotorLeft.run_distance(speed, distance_left, stop, False)
+    MotorRight.run_distance(speed, distance_right, stop, False)
 
 #gyro geradeaus
 #hier fahren wir geradeaus und checken dauerhaft wie unser gyro wert sich verändert
