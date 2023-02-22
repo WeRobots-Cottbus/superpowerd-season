@@ -27,7 +27,7 @@ def run():
     gyro0 = Gyro.angle()
 
     GyroDrive(270, 300, 0, 4, True)#erste schnelle bewegung
-    GyroDrive(100, 100, 0, 6, True)#lagsam damit die einheit nicht weg fählt
+    GyroDrive(100, 100, 0, 6, True)#langsam damit die einheit nicht weg fählt
     GyroDrive(-110, 200, 0, 4, True)#zurück für die drehung auf rampe hin
     GyroTurn(47, 20)#drehung auf rampe hin
     GyroDrive(510, 300, 47, 4, True)#fahrt auf zur Rampe
@@ -51,6 +51,8 @@ def run():
 
     GyroTurn(140, 100)
     GyroDrive(1_000, 400, 140, 5)#in die Base
+
+
 
 
 if __name__ == "__main__":

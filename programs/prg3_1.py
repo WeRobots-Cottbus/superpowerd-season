@@ -21,25 +21,27 @@ def run():
     Gyro.reset_angle(0)
     gyro0 = Gyro.angle()
     #programm
-    GyroDrive(450,300,gyro0)
-    GyroTurn(gyro0+28,20)
-    GyroDrive(515,350,gyro0+32)
-    wait(600)
-    GyroDrive(-155,250,gyro0)
-    GyroTurn(gyro0+90,35)
-    GyroTurn(gyro0+90,5)
-    GyroDrive(-130,250,gyro0+90,5)
-    GyroDrive(10,400,gyro0+90)
-    GyroDrive(-10,400,gyro0+90)
-    GyroDrive(15,400,gyro0+90)
-    GyroTurn(gyro0-15,100)
-    GyroDrive(760,400,gyro0-10)
+    GyroDrive(65,300,0,3)
+    GyroDrive(530,250,90,0.6)
+    GyroDrive(80,100,90,4,True)
+    wait(250)
+    GyroDrive(-150,100,90,2,True)#sachen stehen lassen
 
+    GyroTurn(10,30)#drehung auf trichter
+    GyroDrive(400,500,10)#auf den trichter fahren
+    GyroTurn(45,50)
+    GyroDrive(100,200,45,3)
+    GyroDrive(-150,200,0,1,True)
+    GyroTurn(88,70)
 
+    GyroDrive(-30,200,90,3)
+    GyroDrive(30,300,90,3,True)
 
-
-
-    
+    GyroDrive(-30,200,90,3)
+    GyroDrive(50,300,90,4,True)
+    GyroTurn(-45,50)#drehung richtung base osten
+    GyroDrive(600,300,-45)
+    GyroDrive(600,300,0,2)
 
 
 if __name__ == "__main__":
