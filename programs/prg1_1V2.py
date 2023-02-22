@@ -7,7 +7,7 @@ from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 
-import sys, os
+import sys
 sys.path.insert(0, "/home/robot/superpowerd-season")
 
 from botconfig import MotorTop, MotorFront, MotorLeft, MotorRight, Gyro, ColorRight, Base
