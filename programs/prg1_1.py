@@ -1,22 +1,16 @@
 #!/usr/bin/env pybricks-micropython
 
-from pybricks.hubs import EV3Brick
-from pybricks.ev3devices import Motor, TouchSensor, ColorSensor, GyroSensor
 from pybricks.parameters import Port, Stop, Direction, Button, Color
 from pybricks.tools import wait, StopWatch, DataLog
-from pybricks.robotics import DriveBase
-from pybricks.media.ev3dev import SoundFile, ImageFile
 
 import sys
 sys.path.insert(0, "/home/robot/superpowerd-season")
 
-from botconfig import MotorTop, MotorFront, MotorLeft, MotorRight, Gyro, ColorRight, Base
-from toolkit import GyroDrive, GyroTurn
+from botconfig import MotorForklift, MotorLeft, MotorRight, Gyro, ColorDetect, Base
+from botconfig import MotorTop as MotorArm
+from toolkit import GyroDrive, GyroTurn, TurnOnPivot
 
 PrgName = __file__.split("/")[-1][:-3]
-
-#MotorTop = ausfahrbares dingsbums
-#MotorFront = Gabelstapler
 
 #Aufgaben: M08(20) | M05(20+10) | M04(20) | M02(15) | M09(Dino)
 
@@ -37,9 +31,9 @@ def run():
     GyroTurn(90, 10)#drehung auf genau 90
     
     GyroDrive(350, 300, 90, 3, True)#fahrt bis kurz nach der Hand
-    MotorTop.run_angle(400, 1_100)#speed, angle raus um die einheite mit zu nehmen und die hand zulösen
+    MotorArm.run_angle(400, 1_100)#speed, angle raus um die einheite mit zu nehmen und die hand zulösen
     GyroDrive(290, 300, 90, 3)#fahrt bis kurz richtung öl
-    MotorTop.run_angle(400, -1_200)#speed, angle arm wieder rein
+    MotorArm.run_angle(400, -1_200)#speed, angle arm wieder rein
 
     GyroDrive(-10, 300, 90, 6, True)# öl auslösen
     GyroDrive(20, 300, 90, 2)
