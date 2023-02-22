@@ -28,10 +28,10 @@ def print_message(message:str, max_length:int=17):
         Brick.screen.draw_text(2, y_pos, line)
         y_pos += 20
 
-def wait_exit(ms:int=4_000):
+def wait_exit(msec:int=4_000):
     Brick.light.on(Color.RED)
-    Brick.speaker.beep(100,500)
-    wait(ms)
+    Brick.speaker.beep(100, 500)
+    wait(msec)
     sys.exit()
 
 print_error = lambda port, name: print_message("[ERROR] Port {}: {}".format(port, name))
@@ -82,7 +82,9 @@ except:
 
 # Init Base
 try:
-    Base = DriveBase(MotorLeft, MotorRight, 57, 154)
+    WheelDiameter = 57
+    AxleTrack = 154
+    Base = DriveBase(MotorLeft, MotorRight, WheelDiameter, AxleTrack)
 except:
     print_message("[ERROR] Drivebase")
     wait_exit()
