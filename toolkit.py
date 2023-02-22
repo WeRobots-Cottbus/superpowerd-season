@@ -44,7 +44,7 @@ def TurnOnPivot(pivot:float, relative_angle:float, speed:float, stop:Stop=Stop.H
 #hier fahren wir geradeaus und checken dauerhaft wie unser gyro wert sich verändert
 #wenn der wert sich in eine richtung(negativ oder postiv) verändert dann bewegen verändern wir unsere bewegung
 #in die zu lösende richtung
-def GyroDrive(distance:int, speed:float=200, gyro_start:int = 0, factor:int=3, brake:bool=False) -> None:
+def GyroDrive(distance:int, speed:float=200, gyro_start:int=0, factor:int=3, brake:bool=False) -> None:
     Base.reset()
 
     #rückwärts Bewegung
@@ -69,17 +69,14 @@ def GyroDrive(distance:int, speed:float=200, gyro_start:int = 0, factor:int=3, b
 #nutzung in userem Program nicht als jede drehung einzel sonder ein 0 wert wird gesetzt un darauf wird
 #werden dann alle andere werte berchnet. So wird dreht sich der roboter bei 90 grad immer auf die gleichen 90 grad.
 def GyroTurn(angle:int,speed:int=20) -> None: 
-    turned = False
-
     #drehung nach rechts
-    if angle >= 0 and turned is False:
+    if angle >= 0:
         while Gyro.angle() <= angle:#drehung solange bis gyro richtigen wert gibt
             print(Gyro.angle())
             Base.drive(-speed,-speed)#bewegung nach rechts
-        turned = True#changing turned value
 
     #drehung nach links
-    if angle <= 0 and  turned is False:
+    elif angle <= 0:
         while Gyro.angle() >= angle:#drehung solange bis gyro richtigen wert gibt
             print(Gyro.angle())
             Base.drive(speed,speed)#bewegun nach links
