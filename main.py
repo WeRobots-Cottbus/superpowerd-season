@@ -79,6 +79,5 @@ def color_selection_master():
 
 if __name__ == "__main__":
     Brick.speaker.beep()
-    prg1_1.run()
-    # color_selection()
+    color_selection()
     wait(1_000)
