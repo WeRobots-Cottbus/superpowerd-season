@@ -60,7 +60,7 @@ except:
     print_message("[ERROR] Port 3: 'Color Left'")
     wait_exit()
 try:
-    Colordetect = ColorSensor(Port.S4)
+    ColorDetect = ColorSensor(Port.S4)
 except:
     print_message("[ERROR] Port 4: 'Color Detect'")
     wait_exit()
