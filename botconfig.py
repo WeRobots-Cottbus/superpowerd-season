@@ -1,6 +1,7 @@
 #!/usr/bin/env pybricks-micropython
 
 from pybricks.hubs import EV3Brick
+from pybricks.parameters import Color
 from pybricks.ev3devices import Motor, ColorSensor, GyroSensor
 from pybricks.parameters import Port
 from pybricks.tools import wait
@@ -16,22 +17,24 @@ def text_wrap(text:str, length:int) -> str:
     out = []
     while text:
         out.append(text[:length])
-        text = text[:length]
+        text = text[length:]
     return "\n".join(out)
 
-def print_message(message:str):
+def print_message(message:str, max_length:int=17):
     print(message)
     Brick.screen.clear()
     y_pos = 5
-    for line in text_wrap(message, 25).split("\n"):
+    for line in text_wrap(message, max_length).split("\n"):
         Brick.screen.draw_text(2, y_pos, line)
-        y_pos += 10
+        y_pos += 20
 
-def wait_exit(ms:int=2_000):
+def wait_exit(ms:int=4_000):
+    Brick.light.on(Color.RED)
+    Brick.speaker.beep(100,500)
     wait(ms)
     sys.exit()
 
-print_error = lambda port, name: print_message("ERR Port {}: '{}'".format(port, name))
+print_error = lambda port, name: print_message("[ERROR] Port {}: {}".format(port, name))
 
 # Init Motors
 try:
@@ -81,5 +84,5 @@ except:
 try:
     Base = DriveBase(MotorLeft, MotorRight, 57, 154)
 except:
-    print_message("ERR Drivebase")
+    print_message("[ERROR] Drivebase")
     wait_exit()

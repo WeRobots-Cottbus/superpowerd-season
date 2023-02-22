@@ -77,6 +77,6 @@ def color_selection_master():
     pass
 
 if __name__ == "__main__":
-    Brick.speaker.beep()
+    Brick.speaker.beep(600, 250)
     color_selection()
     wait(1_000)
