@@ -18,7 +18,7 @@ Brick = EV3Brick()
 
 # expand Motor class
 class Motor(Motor):
-    def __init__(self, port:Port, positive_direction:Direction=Direction.CLOCKWISE, gears:list=[], reset_angle:bool=True):
+    def __init__(self, port:Port, positive_direction:Direction=Direction.CLOCKWISE, gears:list[list[int,]]=[], reset_angle:bool=True):
         super().__init__(port, positive_direction, gears, reset_angle)
     # alias for run_angle
     def run_angel(self, speed:int, rotation_angle:int, then:Stop=Stop.HOLD, wait:bool=True):
