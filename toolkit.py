@@ -12,21 +12,20 @@ from math import pi
 from botconfig import Brick, MotorFront, MotorLeft, MotorRight, MotorTop, Gyro, ColorRight, ColorLeft, ColorDetect, Base
 from botconfig import AxleTrack, WheelDiameter
 
-"""
+"""coord[x,y]
 +---------------------+
 |0,0              21,0|
 |                     |
-|      Grid Array     |
+|                     |
 |                     |
 |0,11            21,11|
-+---------------------+
-"""
++---------------------+"""
 def DisplayText(text:str, coord:tuple[int,int]=(0,0), clear:bool=True, **kwargs) -> None:
     if clear: Brick.screen.clear()
     Brick.screen.draw_text(coord[0], coord[1], text, **kwargs)
 
-# pivot:    |--------x--------|
-#           -        0        +
+"""       -        0        +
+pivot:    |--------x--------|   """
 def TurnOnPivot(pivot:float, relative_angle:float, speed:float, stop:Stop=Stop.HOLD) -> None:
     if relative_angle == 0: return
     # calculate the distance and the corresponding angle
