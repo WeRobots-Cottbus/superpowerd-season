@@ -25,6 +25,7 @@ class Motor(Motor):
         super().run_angle(speed, rotation_angle, then, wait)
     # run distance in mm
     def run_distance(self, speed:int, distance_mm:int, then:Stop=Stop.HOLD, wait:bool=True):
+        global WheelDiameter
         super().run_angle(speed, distance_mm/(pi*WheelDiameter) * 360, then, wait)
 
 # helper functions for catch init errors
@@ -53,9 +54,9 @@ print_error = lambda port, name: print_message("[ERROR] Port {}: {}".format(port
 
 # Init Motors
 try:
-    MotorFront = Motor(Port.A)
+    MotorForklift = Motor(Port.A)
 except:
-    print_error("A", "Motor Front")
+    print_error("A", "Motor Forklift")
     wait_exit()
 try:
     MotorLeft = Motor(Port.B)
