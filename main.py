@@ -12,30 +12,31 @@ from toolkit import *
 from programs import prg1_1, prg2_1, prg3_1, prg4_1, prg5_1
 
 
-prg_lst = [prg1_1, prg2_1, prg3_1,prg4_1,prg5_1]
-prg_len = len(prg_lst)
+PRG_LST = [prg1_1, prg2_1, prg3_1,prg4_1,prg5_1]
+PRG_LEN = len(PRG_LST)
 
-prg_prev = lambda x: (x - 1) % prg_len
-prg_next = lambda x: (x + 1) % prg_len
+PRG_PREV = lambda x: (x - 1) % PRG_LEN
+PRG_NEXT = lambda x: (x + 1) % PRG_LEN
 
-def loop():
-    prg5_1.run()# tenp
+def button_selection():
+    global PRG_LST
+
     prg_sel = 0
-    DisplayText(prg_lst[prg_sel].PrgName, (0,4),True)
+    DisplayText(PRG_LST[prg_sel].PrgName, (0,4),True)
     while True:
         # select program
-        if   Button.LEFT   in Brick.buttons.pressed(): prg_sel = prg_prev(prg_sel)
-        elif Button.RIGHT  in Brick.buttons.pressed(): prg_sel = prg_next(prg_sel)
+        if   Button.LEFT   in Brick.buttons.pressed(): prg_sel = PRG_PREV(prg_sel)
+        elif Button.RIGHT  in Brick.buttons.pressed(): prg_sel = PRG_NEXT(prg_sel)
 
         # run program
         elif Button.CENTER in Brick.buttons.pressed():
             DisplayText("is running", (0,6))
-            prg_lst[prg_sel].run()
+            PRG_LST[prg_sel].run()
             DisplayText("", (0,6))
 
         # update display if any button is pressed
         if any(Brick.buttons.pressed()):
-            DisplayText(prg_lst[prg_sel].PrgName, (0,4),True)
+            DisplayText(PRG_LST[prg_sel].PrgName, (0,4),True)
 
         # ui delay
         wait(250)
@@ -76,6 +77,9 @@ def color_selection():
                     prg4_1.run()
                 
                 Brick.light.off()
+
+def color_selection_master():
+    pass
 
 if __name__ == "__main__":
     Brick.speaker.beep()
