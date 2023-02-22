@@ -35,22 +35,22 @@ def run():
     GyroDrive(100, 100, 80, 3, True)# magic auf 90 drehen
     GyroDrive(300, 300, 90, 2, True)# magic auf 90 drehen
     GyroTurn(90, 10)#drehung auf genau 90
-
-    GyroDrive(380, 300, 90, 3, True)#fahrt bis kurz nach der Hand
+    
+    GyroDrive(350, 300, 90, 3, True)#fahrt bis kurz nach der Hand
     MotorTop.run_angle(400, 1_100)#speed, angle raus um die einheite mit zu nehmen und die hand zulösen
-    GyroDrive(260, 300, 90, 6)#fahrt bis kurz richtung öl
+    GyroDrive(290, 300, 90, 3)#fahrt bis kurz richtung öl
     MotorTop.run_angle(400, -1_200)#speed, angle arm wieder rein
 
     GyroDrive(-10, 300, 90, 6, True)# öl auslösen
-    GyroDrive(10, 300, 90, 6)
+    GyroDrive(20, 300, 90, 2)
     GyroDrive(-10, 300, 90, 6, True)
-    GyroDrive(10, 300, 90, 6)
+    GyroDrive(20, 300, 90, 2)
     GyroDrive(-10, 300, 90, 6, True)
-    GyroDrive(10, 300, 90, 6)
+    GyroDrive(20, 300, 90, 2)
     GyroDrive(-40, 300, 90, 6, True) # kurz von öl weg
 
     GyroTurn(140, 100)
-    GyroDrive(1_500, 400, 140, 5)#in die Base
+    GyroDrive(1_000, 400, 140, 5)#in die Base
 
 
 if __name__ == "__main__":
