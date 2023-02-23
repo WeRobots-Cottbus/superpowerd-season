@@ -9,7 +9,7 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 
 from math import pi
 
-from botconfig import Brick, MotorFront, MotorLeft, MotorRight, MotorTop, Gyro, ColorRight, ColorLeft, ColorDetect, Base
+from botconfig import Brick, MotorForklift, MotorLeft, MotorRight, MotorTop, Gyro, ColorRight, ColorLeft, ColorDetect, Base
 from botconfig import AxleTrack, WheelDiameter
 
 """coord[x,y]
