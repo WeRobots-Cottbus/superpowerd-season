@@ -36,21 +36,24 @@ def text_wrap(text:str, length:int) -> str:
         text = text[length:]
     return "\n".join(out)
 
-def print_message(message:str, max_length:int=17):
+def print_message(message:str, max_length:int=17, is_error:bool=False):
     print(message)
     Brick.screen.clear()
     y_pos = 5
     for line in text_wrap(message, max_length).split("\n"):
         Brick.screen.draw_text(2, y_pos, line)
         y_pos += 20
+    if is_error:
+        Brick.light.on(Color.RED)
+        Brick.speaker.beep(100, 500)
+        wait(500)
+        Brick.light.off()
 
 def wait_exit(msec:int=4_000):
-    Brick.light.on(Color.RED)
-    Brick.speaker.beep(100, 500)
     wait(msec)
     sys.exit()
 
-print_error = lambda port, name: print_message("[ERROR] Port {}: {}".format(port, name))
+print_error = lambda port, name: print_message("[ERROR] Port {}: {}".format(port, name), is_error=True)
 
 # Init Motors
 try:
