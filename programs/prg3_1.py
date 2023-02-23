@@ -26,7 +26,7 @@ def run():
     GyroTurn(10,30)#drehung auf trichter
     GyroDrive(400,500,10)#auf den trichter fahren
     GyroTurn(45,50)
-    GyroDrive(100,200,45,3)
+    GyroDrive(90,200,45,3)
     GyroDrive(-150,200,0,1,True)
     GyroTurn(88,70)
 
@@ -35,7 +35,7 @@ def run():
 
     GyroDrive(-30,200,90,3)
     GyroDrive(50,300,90,4,True)
-    GyroTurn(-45,50)#drehung richtung base osten
+    GyroTurn(-45,200)#drehung richtung base osten
     GyroDrive(600,300,-45)
     GyroDrive(600,300,0,2)
 
