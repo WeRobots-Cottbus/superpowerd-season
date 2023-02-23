@@ -44,7 +44,7 @@ def run():
     GyroDrive(-40, 300, 90, 6, True) # kurz von öl weg
 
     GyroTurn(140, 100)
-    GyroDrive(1_000, 400, 140, 5)#in die Base
+    GyroDrive(900, 400, 140, 5)#in die Base
 
 
 
