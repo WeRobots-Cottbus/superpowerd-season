@@ -3,8 +3,6 @@
 from pybricks.parameters import Button, Color
 from pybricks.tools import wait
 
-import subprocess, sys
-
 from botconfig import *
 from toolkit import *
 from programs import prg1_1, prg2_1, prg3_1, prg4_1
@@ -42,6 +40,13 @@ def button_selection():
 
 
 def color_selection():
+    programs = {
+        Color.BLACK:  (prg1_1, "Schwarz -> Gelb"),
+        Color.YELLOW: (prg2_1, "Gelb -> Weiß"),
+        Color.WHITE:  (prg3_1, "Weiß -> Rot"),
+        Color.RED:    (prg4_1, "Rot")
+    }
+
     while True:
         color = ColorDetect.color()
         wait(100)
@@ -49,66 +54,17 @@ def color_selection():
         if Button.CENTER in Brick.buttons.pressed():
             color = ColorDetect.color()
 
-            if color is Color.BLACK:
-                print_message("Schwarz -> Gelb")
-                Brick.light.on(Color.GREEN)
-                prg1_1.run()
-            elif color is Color.YELLOW:
-                print_message("Gelb -> Weiß")
-                Brick.light.on(Color.GREEN)
-                prg2_1.run()
-            elif color is Color.WHITE:
-                print_message("Weiß -> Rot")
-                Brick.light.on(Color.GREEN)
-                prg3_1.run()
-            elif color is Color.RED:
-                print_message("Rot")
-                Brick.light.on(Color.GREEN)
-                prg4_1.run()
+            if programs.get(color):
+                prg, msg = programs[color]
+                print_message(msg)
+                Brick.light.on(Color.RED)
+                Brick.speaker.beep(500, 100)
+                prg.run()
             else:
                 print_message("Keine Farbe erkannt", is_error=True)
 
 
-def color_selection_master():
-    programs = {
-        Color.BLACK:  ("prg1_1", "Schwarz -> Gelb"),
-        Color.YELLOW: ("prg2_1", "Gelb -> Weiß"),
-        Color.WHITE:  ("prg3_1", "Weiß -> Rot"),
-        Color.RED:    ("prg4_1", "Rot")
-    }
-    process = None
-
-    while True:
-        wait(100)
-
-        if Button.CENTER in Brick.buttons.pressed():
-            color = ColorDetect.color()
-
-            if process is not None and process.poll() is not None:
-                if programs.get(color):
-                    name, msg = programs[color]
-                    print_message(msg)
-                    Brick.light.on(Color.RED)
-                    Brick.speaker.beep(500, 100)
-                    process = subprocess.Popen([
-                        sys.executable,
-                        "./programs/{}.py".format(name)
-                    ])
-                else:
-                    print_message("Keine Farbe erkannt", is_error=True)   
-            else:
-                print_message("Ein anderes Programm läuft noch", is_error=True)
-        
-        else:
-            if type(process) is subprocess.Popen:
-                process.terminate()
-                process = None
-                print_message("Programm beendet")
-            else:
-                print_message("Es läuft kein Programm")
-
-
 if __name__ == "__main__":
     Brick.speaker.beep(600, 250)
-    color_selection_master()
+    color_selection()
     wait(1_000)
