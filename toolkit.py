@@ -24,14 +24,19 @@ def DisplayText(text:str, coord:tuple[int,int]=(0,0), clear:bool=True, **kwargs)
     if clear: Brick.screen.clear()
     Brick.screen.draw_text(coord[0], coord[1], text, **kwargs)
 
-"""      -77       0       +77
-pivot:    |--------x--------|   """
+"""       -77       0       +77
+pivot:  ---|--------x--------|---   """
 def TurnOnPivot(pivot:float, relative_angle:float, speed:float, stop:Stop=Stop.HOLD) -> None:
     if relative_angle == 0: return
     # calculate the distance and the corresponding angle
     # formular: s = alpha/360° * 2pi * r
-    distance_left = relative_angle/360 * 2*pi * (pivot + AxleTrack/2)
+    distance_left = relative_angle/360 * 2*pi * (AxleTrack/2 + pivot)
     distance_right = relative_angle/360 * 2*pi * (AxleTrack/2 - pivot)
+    # correct distance, if pivot point is outside of the axle track
+    if pivot < -AxleTrack/2:
+        distance_left *= -1
+    elif pivot > AxleTrack/2:
+        distance_right *= -1
     # run angle
     MotorLeft.run_distance(speed, distance_left, stop, False)
     MotorRight.run_distance(speed, distance_right, stop, False)
