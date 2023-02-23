@@ -2,7 +2,7 @@
 
 from pybricks.hubs import EV3Brick
 from pybricks.parameters import Color, Port, Direction, Stop
-from pybricks.ev3devices import Motor, ColorSensor, GyroSensor
+from pybricks.ev3devices import ColorSensor, GyroSensor, Motor
 from pybricks.tools import wait
 from pybricks.robotics import DriveBase
 
@@ -18,15 +18,15 @@ Brick = EV3Brick()
 
 # expand Motor class
 class Motor(Motor):
-    def __init__(self, port:Port, positive_direction:Direction=Direction.CLOCKWISE, gears:list[list[int,]]=[], reset_angle:bool=True):
-        super().__init__(port, positive_direction, gears, reset_angle)
+    def __init__(self, port:Port, positive_direction:Direction=Direction.CLOCKWISE):
+        self = super().__init__(port, positive_direction)
     # alias for run_angle
     def run_angel(self, speed:int, rotation_angle:int, then:Stop=Stop.HOLD, wait:bool=True):
-        super().run_angle(speed, rotation_angle, then, wait)
+        self.run_angle(speed, rotation_angle, then, wait)
     # run distance in mm
     def run_distance(self, speed:int, distance_mm:int, then:Stop=Stop.HOLD, wait:bool=True):
         global WheelDiameter
-        super().run_angle(speed, distance_mm/(pi*WheelDiameter) * 360, then, wait)
+        self.run_angle(speed, distance_mm/(pi*WheelDiameter) * 360, then, wait)
 
 # helper functions for catch init errors
 def text_wrap(text:str, length:int) -> str:
@@ -55,50 +55,59 @@ print_error = lambda port, name: print_message("[ERROR] Port {}: {}".format(port
 # Init Motors
 try:
     MotorForklift = Motor(Port.A)
-except:
+except Exception as error:
+    print(error)
     print_error("A", "Motor Forklift")
     wait_exit()
 try:
     MotorLeft = Motor(Port.B)
-except:
+except Exception as error:
+    print(error)
     print_error("B", "Motor Left")
     wait_exit()
 try:
     MotorRight = Motor(Port.C)
-except:
+except Exception as error:
+    print(error)
     print_error("C", "Motor Right")
     wait_exit()
 try:
     MotorTop = Motor(Port.D)
-except:
+except Exception as error:
+    print(error)
     print_error("D", "Motor Top")
     wait_exit()
 
 # Init Sensors
 try:
     Gyro = GyroSensor(Port.S1)
-except:
+except Exception as error:
+    print(error)
     print_error("1", "Gyro")
     wait_exit()
 try:
     ColorRight = ColorSensor(Port.S2)
-except:
+except Exception as error:
+    print(error)
     print_error("2", "Color Right")
     wait_exit()
 try:
     ColorLeft  = ColorSensor(Port.S3)
-except:
+except Exception as error:
+    print(error)
     print_error("3", "Color Left")
     wait_exit()
 try:
     ColorDetect = ColorSensor(Port.S4)
-except:
+except Exception as error:
+    print(error)
     print_error("4", "Color Detect")
     wait_exit()
 
 # Init Base
 try:
     Base = DriveBase(MotorLeft, MotorRight, WheelDiameter, AxleTrack)
-except:
+except Exception as error:
+    print(error)
     print_message("[ERROR] Drivebase")
     wait_exit()
