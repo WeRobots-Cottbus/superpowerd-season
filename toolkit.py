@@ -26,20 +26,33 @@ def DisplayText(text:str, coord:tuple[int,int]=(0,0), clear:bool=True, **kwargs)
 
 """       -77       0       +77
 pivot:  ---|--------x--------|---   """
-def TurnOnPivot(pivot:float, relative_angle:float, speed:float, stop:Stop=Stop.HOLD) -> None:
-    if relative_angle == 0: return
-    # calculate the distance and the corresponding angle
+def TurnOnPivot(pivot:float, angle:float, speed:float, brake:bool=True) -> None:
+    if angle == Gyro.angle(): return
+    # calculate distance
     # formular: s = alpha/360° * 2pi * r
-    distance_left = relative_angle/360 * 2*pi * (AxleTrack/2 + pivot)
-    distance_right = relative_angle/360 * 2*pi * (AxleTrack/2 - pivot)
+    distance_left = angle/360 * 2*pi * (AxleTrack/2 + pivot)
+    distance_right = angle/360 * 2*pi * (AxleTrack/2 - pivot) 
     # correct distance, if pivot point is outside of the axle track
     if pivot < -AxleTrack/2:
         distance_left *= -1
     elif pivot > AxleTrack/2:
         distance_right *= -1
-    # run angle
-    MotorLeft.run_distance(speed, distance_left, stop, False)
-    MotorRight.run_distance(speed, distance_right, stop, False)
+    # run until angle reached
+    if Gyro.angle() < angle:
+        while Gyro.angle() <= angle:
+            MotorLeft.run(speed*abs(distance_left / distance_right))
+            MotorRight.run(speed)
+    else:
+        while Gyro.angle() >= angle:
+            MotorLeft.run(speed)
+            MotorRight.run(speed*abs(distance_right / distance_left))
+    # brake
+    if brake:
+        MotorLeft.hold()
+        MotorRight.hold()
+    else:
+        MotorLeft.brake()
+        MotorRight.brake()
 
 #gyro geradeaus
 #hier fahren wir geradeaus und checken dauerhaft wie unser gyro wert sich verändert
