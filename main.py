@@ -67,4 +67,5 @@ def color_selection():
 if __name__ == "__main__":
     Brick.speaker.beep(600, 250)
     color_selection()
+    Brick.speaker.beep(100, 1_000)
     wait(1_000)
