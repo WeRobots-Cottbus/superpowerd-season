@@ -36,7 +36,7 @@ def run():
     GyroDrive(-30,200,90,3)
     GyroDrive(50,300,90,4,True)
     GyroTurn(-45,200)#drehung richtung base osten
-    GyroDrive(500,300,-45)
+    GyroDrive(300,300,-45)
     GyroDrive(600,300,0,5)
 
 
