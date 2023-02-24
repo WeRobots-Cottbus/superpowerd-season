@@ -5,6 +5,7 @@ from pybricks.parameters import Color, Port, Direction, Stop
 from pybricks.ev3devices import ColorSensor, GyroSensor, Motor
 from pybricks.tools import wait
 from pybricks.robotics import DriveBase
+from pybricks.media.ev3dev import Font
 
 import sys
 from math import pi
@@ -15,6 +16,7 @@ AxleTrack = 154
 
 # Init Brick
 Brick = EV3Brick()
+Brick.screen.set_font(Font("Consolas", 20, monospace=True))
 
 # expand Motor class
 class Motor(Motor):
@@ -36,7 +38,7 @@ def text_wrap(text:str, length:int) -> str:
         text = text[length:]
     return "\n".join(out)
 
-def print_message(message:str, max_length:int=17, is_error:bool=False):
+def print_message(message:str, max_length:int=25, is_error:bool=False):
     print(message)
     Brick.screen.clear()
     y_pos = 5
