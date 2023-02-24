@@ -59,17 +59,20 @@ def TurnOnPivot(pivot:float, angle:float, speed:float, brake:bool=True) -> None:
 #wenn der wert sich in eine richtung(negativ oder postiv) verändert dann bewegen verändern wir unsere bewegung
 #in die zu lösende richtung
 def GyroDrive(distance:int, speed:float=200, gyro_start:int=0, factor:int=3, brake:bool=False) -> None:
+    print("GyroDrive start:")
     Base.reset()
 
     #rückwärts Bewegung
     if distance < 0:
 
         while Base.distance() >= distance:#solange wir noch nicht die zufahrende distanz gefahren sind
+            print("  ", Gyro.angle())
             Base.drive(-speed,-((gyro_start-Gyro.angle())*factor))#berechnung des zu drehenden Faktors der und wieder zum ausgangswert bewegt
 
     #vorwärts Bewegung
     else:
         while Base.distance() <= distance:#solanfe wir noch nicht die zufahrende distanz gefrahren sind
+            print("  ", Gyro.angle())
             Base.drive(speed,-((gyro_start-Gyro.angle())*factor))#berechnung des zu drehenden Faktors der und wieder zum ausgangswert bewegt
 
     Base.stop()
@@ -77,23 +80,32 @@ def GyroDrive(distance:int, speed:float=200, gyro_start:int=0, factor:int=3, bra
     if brake:
         MotorLeft.hold()
         MotorRight.hold()
-    print("Gestartet bei: "+ str(gyro_start) +"\n Geendet bei: " + str(Gyro.angle()))
+    print("  GyroDrive start", gyro_start)
+    print("GyroDrive end", Gyro.angle())
 
 #drehung auf einen gyrowert
 #nutzung in userem Program nicht als jede drehung einzel sonder ein 0 wert wird gesetzt un darauf wird
 #werden dann alle andere werte berchnet. So wird dreht sich der roboter bei 90 grad immer auf die gleichen 90 grad.
-def GyroTurn(angle:int, speed:int=20) -> None: 
+def GyroTurn(angle:int, speed:int=20, brake:bool=False) -> None:
+    gyro_start = Gyro.angle()
+    print("GyroTurn start:")
+    if gyro_start == angle: return
     #drehung nach rechts
     if angle >= 0:
         while Gyro.angle() <= angle:#drehung solange bis gyro richtigen wert gibt
-            print(Gyro.angle())
+            print("  ", Gyro.angle())
             Base.drive(-speed,-speed)#bewegung nach rechts
 
     #drehung nach links
     elif angle <= 0:
         while Gyro.angle() >= angle:#drehung solange bis gyro richtigen wert gibt
-            print(Gyro.angle())
+            print("  ", Gyro.angle())
             Base.drive(speed,speed)#bewegun nach links
 
     Base.stop()#stop der Bewegung
+    if brake:
+        MotorLeft.hold()
+        MotorRight.hold()
     Base.reset()#reset der Bewegungen
+    print("  GyroTurn start", gyro_start)
+    print("GyroTurn end", Gyro.angle())
