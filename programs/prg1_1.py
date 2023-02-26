@@ -24,15 +24,15 @@ def run():
     GyroDrive(100, 100, 0, 6, True)#langsam damit die einheit nicht weg fählt
     GyroDrive(-110, 200, 0, 4, True)#zurück für die drehung auf rampe hin
     GyroTurn(47, 20)#drehung auf rampe hin
-    GyroDrive(510, 300, 47, 4, True)#fahrt auf zur Rampe
+    GyroDrive(550, 300, 47, 4, True)#fahrt auf zur Rampe
     #entwerder jetzt schräg auf 90 grad oder einfache normal drehen
-    GyroDrive(100, 100, 80, 3, True)# magic auf 90 drehen
+    GyroDrive(100, 100, 70, 3, True)# magic auf 90 drehen
     GyroDrive(300, 300, 90, 2, True)# magic auf 90 drehen
-    GyroTurn(90, 10)#drehung auf genau 90
+    GyroTurn(88, 10)#drehung auf genau 90
     
-    GyroDrive(350, 300, 90, 3, True)#fahrt bis kurz nach der Hand
+    GyroDrive(350, 300, 88, 3, True)#fahrt bis kurz nach der Hand
     MotorArm.run_angle(400, 1_100)#speed, angle raus um die einheite mit zu nehmen und die hand zulösen
-    GyroDrive(290, 300, 90, 3)#fahrt bis kurz richtung öl
+    GyroDrive(290, 300, 88, 3)#fahrt bis kurz richtung öl
     MotorArm.run_angle(400, -1_200)#speed, angle arm wieder rein
 
     GyroDrive(-10, 300, 90, 6, True)# öl auslösen
