@@ -24,24 +24,24 @@ def run():
     GyroDrive(100, 100, 0, 6, True)#langsam damit die einheit nicht weg fählt
     GyroDrive(-110, 200, 0, 4, True)#zurück für die drehung auf rampe hin
     GyroTurn(47, 20)#drehung auf rampe hin
-    GyroDrive(550, 300, 47, 4, True)#fahrt auf zur Rampe
+    GyroDrive(540, 300, 47, 4, True)#fahrt auf zur Rampe
     #entwerder jetzt schräg auf 90 grad oder einfache normal drehen
-    GyroDrive(100, 100, 70, 3, True)# magic auf 90 drehen
-    GyroDrive(300, 300, 90, 2, True)# magic auf 90 drehen
-    GyroTurn(88, 10)#drehung auf genau 90
+    GyroDrive(100, 100, 80, 3, True)# magic auf 90 drehen
+    GyroDrive(300, 300, 91, 2, True)# magic auf 90 drehen
+    GyroTurn(89, 10)#drehung auf genau 90
     
-    GyroDrive(350, 300, 88, 3, True)#fahrt bis kurz nach der Hand
-    MotorArm.run_angle(400, 1_100)#speed, angle raus um die einheite mit zu nehmen und die hand zulösen
-    GyroDrive(290, 300, 88, 3)#fahrt bis kurz richtung öl
+    GyroDrive(350, 300, 89, 5, True)#fahrt bis kurz nach der Hand
+    MotorArm.run_angle(400, 900)#speed, angle raus um die einheite mit zu nehmen und die hand zulösen
+    GyroDrive(290, 300, 90, 3)#fahrt bis kurz richtung öl
     MotorArm.run_angle(400, -1_200)#speed, angle arm wieder rein
 
-    GyroDrive(-10, 300, 90, 6, True)# öl auslösen
-    GyroDrive(20, 300, 90, 2)
-    GyroDrive(-10, 300, 90, 6, True)
-    GyroDrive(20, 300, 90, 2)
-    GyroDrive(-10, 300, 90, 6, True)
-    GyroDrive(20, 300, 90, 2)
-    GyroDrive(-40, 300, 90, 6, True) # kurz von öl weg
+    GyroDrive(-10, 300, 91, 6, True)# öl auslösen
+    GyroDrive(20, 300, 91, 2)
+    GyroDrive(-10, 300, 91, 6, True)
+    GyroDrive(20, 300, 91, 2)
+    GyroDrive(-10, 300, 91, 6, True)
+    GyroDrive(20, 300, 91, 2)
+    GyroDrive(-40, 300, 91, 6, True) # kurz von öl weg
 
     GyroTurn(140, 100)
     GyroDrive(900, 400, 140, 5)#in die Base
