@@ -6,7 +6,7 @@ from pybricks.tools import wait
 from botconfig import *
 from toolkit import *
 
-MTR_LST = [(MotorTop, MotorFront), (MotorLeft, MotorRight)]
+MTR_LST = [(MotorTop, MotorForklift), (MotorLeft, MotorRight)]
 
 def loop():
     global MTR_LST
