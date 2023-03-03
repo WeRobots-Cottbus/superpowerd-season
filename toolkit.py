@@ -27,7 +27,8 @@ def DisplayText(text:str, coord:tuple[int,int]=(0,0), clear:bool=True, **kwargs)
 """       -77       0       +77
 pivot:  ---|--------x--------|---   """
 def TurnOnPivot(pivot:float, angle:float, speed:float, brake:bool=True) -> None:
-    if angle == Gyro.angle(): return
+    gyro_start = Gyro.angle()
+    if angle == gyro_start: return
     # calculate distance
     # formular: s = alpha/360° * 2pi * r
     distance_left = angle/360 * 2*pi * (AxleTrack/2 + pivot)
@@ -38,14 +39,14 @@ def TurnOnPivot(pivot:float, angle:float, speed:float, brake:bool=True) -> None:
     elif pivot > AxleTrack/2:
         distance_right *= -1
     # run until angle reached
-    if Gyro.angle() < angle:
+    if gyro_start < angle:
         while Gyro.angle() <= angle:
-            MotorLeft.run(speed*abs(distance_left / distance_right))
+            MotorLeft.run(speed*abs(distance_left / (distance_right+1e-10)))
             MotorRight.run(speed)
     else:
         while Gyro.angle() >= angle:
             MotorLeft.run(speed)
-            MotorRight.run(speed*abs(distance_right / distance_left))
+            MotorRight.run(speed*abs(distance_right / (distance_left+1e-10)))
     # brake
     if brake:
         MotorLeft.hold()
